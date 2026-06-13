@@ -78,27 +78,29 @@ body {
 
 .background-gradient {
     position: fixed;
-    top: -30%;
-    left: -30%;
-    width: 160%;
-    height: 160%;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
     background:
-        /* Gold wave - left side */
-        radial-gradient(ellipse 3000px 2200px at 15% 25%, #d4a574 0%, #d4a574 20%, #c49460 35%, rgba(150, 110, 50, 0.8) 50%, transparent 70%),
-        /* Teal wave - right side */
-        radial-gradient(ellipse 2800px 2400px at 75% 70%, #6ba89a 0%, #5a9888 25%, rgba(70, 120, 110, 0.6) 45%, transparent 75%),
-        /* Dark shadow wave - top center */
-        radial-gradient(ellipse 2500px 1800px at 50% 10%, rgba(30, 40, 35, 0.9) 0%, rgba(60, 80, 70, 0.5) 30%, transparent 60%),
-        /* Brown mid-tone wave */
-        radial-gradient(ellipse 2200px 1600px at 25% 55%, #9d7d47 0%, rgba(120, 95, 55, 0.7) 35%, transparent 65%),
-        /* Teal-green wave - bottom right */
-        radial-gradient(ellipse 2400px 2000px at 80% 85%, rgba(90, 150, 130, 0.7) 0%, rgba(60, 110, 95, 0.3) 40%, transparent 70%),
-        /* Dark shadow curve */
-        radial-gradient(ellipse 1800px 2500px at 60% 45%, rgba(20, 30, 28, 0.7) 0%, transparent 50%);
+        /* Large gold wave - left upper */
+        radial-gradient(ellipse 3500px 2600px at 10% 20%, #d4a574 0%, #d4a574 25%, #c49460 40%, rgba(180, 140, 70, 0.4) 60%, transparent 85%),
+        /* Large teal wave - right lower */
+        radial-gradient(ellipse 3200px 2800px at 80% 75%, #5a9888 0%, #5a9888 20%, #4a8878 35%, rgba(70, 130, 115, 0.35) 55%, transparent 80%),
+        /* Mid-tone gold-brown - left center */
+        radial-gradient(ellipse 2800px 2000px at 20% 50%, #c49460 0%, #b8845c 30%, rgba(160, 110, 50, 0.5) 50%, transparent 75%),
+        /* Dark shadow - top center */
+        radial-gradient(ellipse 2400px 1600px at 50% 15%, rgba(40, 50, 45, 0.8) 0%, rgba(70, 85, 75, 0.3) 35%, transparent 65%),
+        /* Teal accent - right center */
+        radial-gradient(ellipse 2600px 1800px at 75% 40%, #6ba89a 0%, rgba(80, 140, 125, 0.5) 40%, transparent 70%),
+        /* Dark curved shadow - creates depth */
+        radial-gradient(ellipse 2200px 2200px at 60% 60%, rgba(25, 35, 30, 0.6) 0%, transparent 55%),
+        /* Light gold edge - bottom left */
+        radial-gradient(ellipse 2000px 1500px at 15% 85%, rgba(200, 160, 100, 0.4) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
-    filter: blur(70px);
-    mix-blend-mode: multiply;
+    filter: blur(75px);
+    mix-blend-mode: lighten;
 }
 
 /* ===== HEADER ===== */
