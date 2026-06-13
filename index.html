@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SerenityOS - Personal Operating System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="welcome-screen">
+            <div class="welcome-content">
+                <div class="os-logo">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <rect x="10" y="10" width="60" height="60" rx="8" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="40" cy="40" r="20" fill="currentColor" opacity="0.2"/>
+                        <path d="M40 30 L50 40 L40 50 L30 40 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <h1>Welcome to SerenityOS</h1>
+                <p>Your personal operating system. Explore to discover who I am.</p>
+
+                <div class="welcome-form">
+                    <input
+                        type="text"
+                        id="nameInput"
+                        placeholder="Enter your name..."
+                        class="input-field"
+                    >
+                    <button id="enterBtn" class="btn-enter">Enter OS</button>
+                </div>
+
+                <div class="welcome-footer">
+                    <p>Click anywhere or press Enter to continue</p>
+                </div>
+            </div>
+
+            <div class="background-gradient"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
