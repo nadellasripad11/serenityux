@@ -190,13 +190,33 @@ function setupAppFunctionality(windowEl, appName) {
             const email = emailInput.value.trim();
             const message = messageInput.value.trim();
 
-            if (email && message) {
-                alert(`Message sent from ${email}:\n\n${message}`);
-                emailInput.value = '';
-                messageInput.value = '';
-            } else {
-                alert('Please fill in both email and message');
+            if (!email) {
+                emailInput.style.borderColor = '#f87171';
+                return;
             }
+            if (!message) {
+                messageInput.style.borderColor = '#f87171';
+                return;
+            }
+
+            // Show success message
+            const originalText = sendBtn.textContent;
+            sendBtn.textContent = '✓ Sent!';
+            sendBtn.style.background = 'rgba(34, 197, 94, 0.2)';
+            sendBtn.style.borderColor = '#22c55e';
+            sendBtn.style.color = '#22c55e';
+
+            emailInput.value = '';
+            messageInput.value = '';
+            emailInput.style.borderColor = '';
+            messageInput.style.borderColor = '';
+
+            setTimeout(() => {
+                sendBtn.textContent = originalText;
+                sendBtn.style.background = 'rgba(167, 139, 250, 0.2)';
+                sendBtn.style.borderColor = '#a78bfa';
+                sendBtn.style.color = '#a78bfa';
+            }, 2000);
         };
     } else if (appName === 'notes') {
         const saveBtn = content.querySelector('.note-save');
@@ -207,19 +227,37 @@ function setupAppFunctionality(windowEl, appName) {
             const title = titleInput.value.trim();
             const noteContent = contentInput.value.trim();
 
-            if (title || noteContent) {
-                const notes = JSON.parse(localStorage.getItem('serenityNotes') || '[]');
-                notes.push({
-                    id: Date.now(),
-                    title: title || 'Untitled',
-                    content: noteContent,
-                    date: new Date().toLocaleString()
-                });
-                localStorage.setItem('serenityNotes', JSON.stringify(notes));
-                alert('Note saved!');
-                titleInput.value = '';
-                contentInput.value = '';
+            if (!title && !noteContent) {
+                contentInput.style.borderColor = '#f87171';
+                return;
             }
+
+            const notes = JSON.parse(localStorage.getItem('serenityNotes') || '[]');
+            notes.push({
+                id: Date.now(),
+                title: title || 'Untitled',
+                content: noteContent,
+                date: new Date().toLocaleString()
+            });
+            localStorage.setItem('serenityNotes', JSON.stringify(notes));
+
+            // Show success feedback
+            const originalText = saveBtn.textContent;
+            saveBtn.textContent = '✓ Saved!';
+            saveBtn.style.background = 'rgba(34, 197, 94, 0.2)';
+            saveBtn.style.borderColor = '#22c55e';
+            saveBtn.style.color = '#22c55e';
+
+            titleInput.value = '';
+            contentInput.value = '';
+            contentInput.style.borderColor = '';
+
+            setTimeout(() => {
+                saveBtn.textContent = originalText;
+                saveBtn.style.background = 'rgba(167, 139, 250, 0.2)';
+                saveBtn.style.borderColor = '#a78bfa';
+                saveBtn.style.color = '#a78bfa';
+            }, 2000);
         };
     } else if (appName === 'todo') {
         const addBtn = content.querySelector('.todo-add');
