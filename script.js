@@ -208,6 +208,18 @@ function openWindow(appName) {
             title = 'Timer';
             content = `<div style="display: flex; flex-direction: column; align-items: center; gap: 16px;"><div class="timer-display" style="font-size: 3em; color: #a78bfa; font-family: monospace; font-weight: bold;">25:00</div><div style="display: flex; gap: 8px;"><button class="timer-start" style="padding: 10px 20px; background: rgba(167, 139, 250, 0.2); border: 1px solid #a78bfa; color: #a78bfa; border-radius: 6px; cursor: pointer;">Start</button><button class="timer-pause" style="padding: 10px 20px; background: rgba(167, 139, 250, 0.2); border: 1px solid #a78bfa; color: #a78bfa; border-radius: 6px; cursor: pointer;">Pause</button><button class="timer-reset" style="padding: 10px 20px; background: rgba(248, 113, 113, 0.1); border: 1px solid #f87171; color: #f87171; border-radius: 6px; cursor: pointer;">Reset</button></div></div>`;
             break;
+        case 'messages':
+            title = 'Messages';
+            const msgList = JSON.parse(localStorage.getItem('serenityMessages') || '[]');
+            content = `<div style="color: #cbd5e0; font-size: 0.9em;"><div id="messages-list">${msgList.length === 0 ? '<p style="color: #999999; text-align: center; padding: 20px;">No messages yet</p>' : msgList.map(msg => `
+                <div style="background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); padding: 12px; margin-bottom: 12px; border-radius: 6px;">
+                    <div style="color: #a78bfa; font-weight: bold; margin-bottom: 4px;">${msg.email}</div>
+                    <div style="margin-bottom: 8px;">${msg.message}</div>
+                    <div style="color: #999999; font-size: 0.85em;">${msg.date}</div>
+                    <button class="msg-delete" data-id="${msg.id}" style="background: rgba(248, 113, 113, 0.2); border: 1px solid #f87171; color: #f87171; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.85em; margin-top: 8px;">Delete</button>
+                </div>
+            `).join('')}</div></div>`;
+            break;
     }
 
     const windowEl = document.createElement('div');
@@ -364,53 +376,33 @@ function setupAppFunctionality(windowEl, appName) {
                 return;
             }
 
-            sendBtn.disabled = true;
-            sendBtn.textContent = 'Sending...';
-
-            // Send via Formspree
-            fetch('https://formspree.io/f/mrevodbn', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: email,
-                    message: message,
-                    _subject: `New message from SerenityOS`
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    const originalText = 'Send Message';
-                    sendBtn.textContent = '✓ Sent!';
-                    sendBtn.style.background = 'rgba(34, 197, 94, 0.2)';
-                    sendBtn.style.borderColor = '#22c55e';
-                    sendBtn.style.color = '#22c55e';
-
-                    emailInput.value = '';
-                    messageInput.value = '';
-                    emailInput.style.borderColor = '';
-                    messageInput.style.borderColor = '';
-
-                    setTimeout(() => {
-                        sendBtn.textContent = originalText;
-                        sendBtn.style.background = 'rgba(167, 139, 250, 0.2)';
-                        sendBtn.style.borderColor = '#a78bfa';
-                        sendBtn.style.color = '#a78bfa';
-                        sendBtn.disabled = false;
-                    }, 2000);
-                } else {
-                    sendBtn.textContent = 'Error - Try again';
-                    sendBtn.style.color = '#f87171';
-                    sendBtn.disabled = false;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                sendBtn.textContent = 'Error - Try again';
-                sendBtn.style.color = '#f87171';
-                sendBtn.disabled = false;
+            // Store message in localStorage
+            const messages = JSON.parse(localStorage.getItem('serenityMessages') || '[]');
+            messages.push({
+                id: Date.now(),
+                email: email,
+                message: message,
+                date: new Date().toLocaleString()
             });
+            localStorage.setItem('serenityMessages', JSON.stringify(messages));
+
+            const originalText = 'Send Message';
+            sendBtn.textContent = '✓ Sent!';
+            sendBtn.style.background = 'rgba(34, 197, 94, 0.2)';
+            sendBtn.style.borderColor = '#22c55e';
+            sendBtn.style.color = '#22c55e';
+
+            emailInput.value = '';
+            messageInput.value = '';
+            emailInput.style.borderColor = '';
+            messageInput.style.borderColor = '';
+
+            setTimeout(() => {
+                sendBtn.textContent = originalText;
+                sendBtn.style.background = 'rgba(167, 139, 250, 0.2)';
+                sendBtn.style.borderColor = '#a78bfa';
+                sendBtn.style.color = '#a78bfa';
+            }, 2000);
         };
     } else if (appName === 'notes') {
         const saveBtn = content.querySelector('.note-save');
@@ -580,6 +572,22 @@ function setupAppFunctionality(windowEl, appName) {
             };
 
             updateDisplay();
+        }, 0);
+    } else if (appName === 'messages') {
+        setTimeout(() => {
+            const deleteButtons = windowEl.querySelectorAll('.msg-delete');
+            deleteButtons.forEach(btn => {
+                btn.onclick = function(e) {
+                    e.stopPropagation();
+                    const id = parseInt(this.dataset.id);
+                    const messages = JSON.parse(localStorage.getItem('serenityMessages') || '[]');
+                    const filtered = messages.filter(m => m.id !== id);
+                    localStorage.setItem('serenityMessages', JSON.stringify(filtered));
+                    this.closest('div').style.opacity = '0.5';
+                    this.textContent = 'Deleted';
+                    this.disabled = true;
+                };
+            });
         }, 0);
     }
 }
