@@ -1,12 +1,36 @@
 {
   "name": "serenityux",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A beautiful, fully-functional web-based operating system built with vanilla JavaScript",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx http-server -p 8000 -c-1",
+    "serve": "npx serve -p 4202",
+    "test": "echo \"No tests yet. Contributions welcome!\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "webos",
+    "operating-system",
+    "javascript",
+    "html5",
+    "css3",
+    "vanilla-js",
+    "web-application",
+    "ui-ux",
+    "hackclub",
+    "jamming"
+  ],
+  "author": "Sripad Nadella <nadellasripad11@gmail.com> (https://github.com/nadellasripad11)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nadellasripad11/serenityux.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nadellasripad11/serenityux/issues"
+  },
+  "homepage": "https://serenityux.vercel.app",
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
