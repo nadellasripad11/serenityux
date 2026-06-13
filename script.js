@@ -50,10 +50,26 @@ function router() {
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
+    setupKeyboardShortcuts();
     router();
     window.addEventListener('hashchange', router);
     setupScrollAnimations();
 });
+
+function setupKeyboardShortcuts() {
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const windows = document.querySelectorAll('.window');
+            if (windows.length > 0) {
+                const lastWindow = windows[windows.length - 1];
+                if (lastWindow.style.display !== 'none') {
+                    const closeBtn = lastWindow.querySelector('.window-close');
+                    closeBtn.click();
+                }
+            }
+        }
+    });
+}
 
 function setupScrollAnimations() {
     const observerOptions = {
@@ -207,9 +223,13 @@ function openWindow(appName) {
     windowEl.innerHTML = `
         <div class="window-header">
             <span class="window-title">${title}</span>
-            <button class="window-close" style="background: none; border: none; color: #a78bfa; font-size: 28px; cursor: pointer;">×</button>
+            <div style="display: flex; gap: 8px;">
+                <button class="window-maximize" style="background: none; border: none; color: #a78bfa; font-size: 16px; cursor: pointer; padding: 4px 8px;">MAX</button>
+                <button class="window-close" style="background: none; border: none; color: #a78bfa; font-size: 28px; cursor: pointer;">×</button>
+            </div>
         </div>
         <div class="window-content">${content}</div>
+        <div class="window-resize" style="position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; cursor: se-resize;"></div>
     `;
 
     desktopContent.appendChild(windowEl);
@@ -224,6 +244,65 @@ function openWindow(appName) {
             windowEl.style.display = 'none';
         }, 300);
     }, true);
+
+    const maximizeBtn = windowEl.querySelector('.window-maximize');
+    let isMaximized = false;
+    let originalState = {};
+
+    maximizeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        if (!isMaximized) {
+            originalState = {
+                left: windowEl.style.left,
+                top: windowEl.style.top,
+                width: windowEl.style.width,
+                height: windowEl.style.height
+            };
+            windowEl.style.left = '10px';
+            windowEl.style.top = '60px';
+            windowEl.style.width = 'calc(100vw - 20px)';
+            windowEl.style.height = 'calc(100vh - 70px)';
+            windowEl.style.maxHeight = 'none';
+            isMaximized = true;
+            maximizeBtn.textContent = 'MIN';
+        } else {
+            windowEl.style.left = originalState.left;
+            windowEl.style.top = originalState.top;
+            windowEl.style.width = originalState.width;
+            windowEl.style.height = originalState.height;
+            windowEl.style.maxHeight = '85vh';
+            isMaximized = false;
+            maximizeBtn.textContent = 'MAX';
+        }
+    }, true);
+
+    const resizeHandle = windowEl.querySelector('.window-resize');
+    let isResizing = false;
+    let startX, startY, startWidth, startHeight;
+
+    resizeHandle.addEventListener('mousedown', function(e) {
+        isResizing = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        startWidth = windowEl.offsetWidth;
+        startHeight = windowEl.offsetHeight;
+        e.stopPropagation();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (isResizing && windowEl.style.display !== 'none') {
+            const newWidth = startWidth + (e.clientX - startX);
+            const newHeight = startHeight + (e.clientY - startY);
+            if (newWidth > 300) windowEl.style.width = newWidth + 'px';
+            if (newHeight > 200) windowEl.style.height = newHeight + 'px';
+        }
+    });
+
+    document.addEventListener('mouseup', function() {
+        isResizing = false;
+    });
 
     windowEl.onmousedown = function() {
         windowEl.style.zIndex = ++windowZIndex;
