@@ -52,7 +52,28 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     router();
     window.addEventListener('hashchange', router);
+    setupScrollAnimations();
 });
+
+function setupScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('scroll-animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.features-section, .apps-section, .tech-section, .cta-section, .feature-card, .app-showcase-card, .tech-item').forEach(element => {
+        observer.observe(element);
+    });
+}
 
 function setupEventListeners() {
     const nameInput = document.getElementById('nameInput');
