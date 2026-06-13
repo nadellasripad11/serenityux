@@ -180,10 +180,12 @@ function openWindow(appName) {
 
     desktopContent.appendChild(windowEl);
 
-    windowEl.querySelector('.window-close').onclick = function(e) {
+    const closeBtn = windowEl.querySelector('.window-close');
+    closeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
+        e.preventDefault();
         windowEl.remove();
-    };
+    }, true);
 
     windowEl.onmousedown = function() {
         windowEl.style.zIndex = ++windowZIndex;
@@ -194,6 +196,8 @@ function openWindow(appName) {
 }
 
 function handleWindowDrag(e) {
+    if (e.target.closest('.window-close')) return;
+
     const windowHeader = e.target.closest('.window-header');
     if (!windowHeader) return;
 
