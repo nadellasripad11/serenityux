@@ -351,13 +351,8 @@ body {
     border: 1px solid #e5e1d8;
     border-radius: 0;
     background: #ffffff;
-    animation: fadeInScale 0.6s ease-out backwards;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.feature-card:nth-child(1) { animation-delay: 0.1s; }
-.feature-card:nth-child(2) { animation-delay: 0.2s; }
-.feature-card:nth-child(3) { animation-delay: 0.3s; }
 
 .feature-card:hover {
     background: #ffffff;
@@ -403,14 +398,8 @@ body {
     border: 1px solid #e5e1d8;
     border-radius: 0;
     background: #ffffff;
-    animation: fadeInScale 0.6s ease-out backwards;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.app-showcase-card:nth-child(1) { animation-delay: 0.1s; }
-.app-showcase-card:nth-child(2) { animation-delay: 0.2s; }
-.app-showcase-card:nth-child(3) { animation-delay: 0.3s; }
-.app-showcase-card:nth-child(4) { animation-delay: 0.4s; }
 
 .app-showcase-card:hover {
     background: #ffffff;
@@ -703,6 +692,88 @@ body {
         transform: scale(1);
     }
 }
+
+@keyframes scrollFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollFadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scrollFadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scroll animation triggers */
+.features-section.scroll-animate,
+.apps-section.scroll-animate,
+.tech-section.scroll-animate,
+.cta-section.scroll-animate {
+    animation: scrollFadeInUp 0.8s ease-out forwards;
+}
+
+.feature-card:not(.scroll-animate) {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.feature-card.scroll-animate {
+    animation: scrollFadeInUp 0.6s ease-out forwards;
+}
+
+.feature-card.scroll-animate:nth-child(1) { animation-delay: 0.05s; }
+.feature-card.scroll-animate:nth-child(2) { animation-delay: 0.1s; }
+.feature-card.scroll-animate:nth-child(3) { animation-delay: 0.15s; }
+
+.app-showcase-card:not(.scroll-animate) {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.app-showcase-card.scroll-animate {
+    animation: scrollFadeInUp 0.6s ease-out forwards;
+}
+
+.app-showcase-card.scroll-animate:nth-child(1) { animation-delay: 0.05s; }
+.app-showcase-card.scroll-animate:nth-child(2) { animation-delay: 0.1s; }
+.app-showcase-card.scroll-animate:nth-child(3) { animation-delay: 0.15s; }
+.app-showcase-card.scroll-animate:nth-child(4) { animation-delay: 0.2s; }
+
+.tech-item:not(.scroll-animate) {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.tech-item.scroll-animate {
+    animation: scrollFadeInUp 0.6s ease-out forwards;
+}
+
+.tech-item.scroll-animate:nth-child(1) { animation-delay: 0.05s; }
+.tech-item.scroll-animate:nth-child(2) { animation-delay: 0.1s; }
+.tech-item.scroll-animate:nth-child(3) { animation-delay: 0.15s; }
+.tech-item.scroll-animate:nth-child(4) { animation-delay: 0.2s; }
 
 .window-header {
     padding: 20px;
