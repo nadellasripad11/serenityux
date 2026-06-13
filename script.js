@@ -350,7 +350,8 @@ function setupAppFunctionality(windowEl, appName) {
         const emailInput = content.querySelector('.contact-email');
         const messageInput = content.querySelector('.contact-message');
 
-        sendBtn.onclick = function() {
+        sendBtn.onclick = function(e) {
+            e.stopPropagation();
             const email = emailInput.value.trim();
             const message = messageInput.value.trim();
 
@@ -363,24 +364,53 @@ function setupAppFunctionality(windowEl, appName) {
                 return;
             }
 
-            // Show success message
-            const originalText = sendBtn.textContent;
-            sendBtn.textContent = '✓ Sent!';
-            sendBtn.style.background = 'rgba(34, 197, 94, 0.2)';
-            sendBtn.style.borderColor = '#22c55e';
-            sendBtn.style.color = '#22c55e';
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
 
-            emailInput.value = '';
-            messageInput.value = '';
-            emailInput.style.borderColor = '';
-            messageInput.style.borderColor = '';
+            // Send via Formspree
+            fetch('https://formspree.io/f/xvgobagq', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    message: message,
+                    _subject: `New message from SerenityOS`
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    const originalText = 'Send Message';
+                    sendBtn.textContent = '✓ Sent!';
+                    sendBtn.style.background = 'rgba(34, 197, 94, 0.2)';
+                    sendBtn.style.borderColor = '#22c55e';
+                    sendBtn.style.color = '#22c55e';
 
-            setTimeout(() => {
-                sendBtn.textContent = originalText;
-                sendBtn.style.background = 'rgba(167, 139, 250, 0.2)';
-                sendBtn.style.borderColor = '#a78bfa';
-                sendBtn.style.color = '#a78bfa';
-            }, 2000);
+                    emailInput.value = '';
+                    messageInput.value = '';
+                    emailInput.style.borderColor = '';
+                    messageInput.style.borderColor = '';
+
+                    setTimeout(() => {
+                        sendBtn.textContent = originalText;
+                        sendBtn.style.background = 'rgba(167, 139, 250, 0.2)';
+                        sendBtn.style.borderColor = '#a78bfa';
+                        sendBtn.style.color = '#a78bfa';
+                        sendBtn.disabled = false;
+                    }, 2000);
+                } else {
+                    sendBtn.textContent = 'Error - Try again';
+                    sendBtn.style.color = '#f87171';
+                    sendBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                sendBtn.textContent = 'Error - Try again';
+                sendBtn.style.color = '#f87171';
+                sendBtn.disabled = false;
+            });
         };
     } else if (appName === 'notes') {
         const saveBtn = content.querySelector('.note-save');
