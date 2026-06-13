@@ -10,50 +10,39 @@
     <!-- Welcome Screen -->
     <div class="welcome-container" id="welcomeContainer">
         <div class="welcome-screen">
+            <!-- Header Navigation -->
+            <div class="welcome-header">
+                <div class="logo-brand">
+                    <span class="brand-text">SerenityOS</span>
+                </div>
+                <nav class="header-nav">
+                    <a href="#" class="nav-item">Explore</a>
+                    <a href="#" class="nav-item">Projects</a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
             <div class="welcome-content">
-                <div class="os-logo">
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect x="10" y="10" width="60" height="60" rx="8" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="40" cy="40" r="20" fill="currentColor" opacity="0.2"/>
-                        <path d="M40 30 L50 40 L40 50 L30 40 Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                    </svg>
-                </div>
-                <h1>Sripad's Operating System</h1>
-                <p class="subtitle">A web-based personal OS built with vanilla JavaScript, featuring draggable windows, real-time apps, and a professional dark interface.</p>
-
-                <div class="welcome-features">
-                    <div class="feature-item">
-                        <span class="feature-icon">🚀</span>
-                        <div>
-                            <strong>Builder & Creator</strong>
-                            <p>Passionate about innovative web experiences</p>
-                        </div>
+                <div class="content-center">
+                    <h1 class="main-title">Your Personal OS</h1>
+                    <div class="scroll-indicator">
+                        <span class="scroll-text">scroll to enter</span>
+                        <div class="scroll-dot"></div>
                     </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">💻</span>
-                        <div>
-                            <strong>Full Stack Developer</strong>
-                            <p>JavaScript, HTML/CSS, Node.js, and more</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">🎯</span>
-                        <div>
-                            <strong>Project Focused</strong>
-                            <p>Socle, Penny Scout, SerenityOS</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="welcome-form">
-                    <input type="text" id="nameInput" placeholder="Enter your name..." class="input-field">
-                    <button id="enterBtn" class="btn-enter">Explore OS</button>
-                </div>
-
-                <div class="welcome-footer">
-                    <p>💬 Welcome to my personal OS — explore the apps to learn more</p>
                 </div>
             </div>
+
+            <!-- Footer Section (below fold) -->
+            <div class="welcome-footer-section">
+                <div class="footer-content">
+                    <h2>Enter Your Name</h2>
+                    <div class="welcome-form">
+                        <input type="text" id="nameInput" placeholder="Type your name..." class="input-field">
+                        <button id="enterBtn" class="btn-enter">Explore OS</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="background-gradient"></div>
         </div>
     </div>
