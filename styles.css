@@ -252,6 +252,15 @@ body {
 /* ===== OS DESKTOP ===== */
 .os-desktop {
     display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.os-desktop[style*="block"] {
+    display: flex !important;
 }
 
 .desktop {
