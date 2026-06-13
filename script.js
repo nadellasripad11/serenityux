@@ -4,6 +4,7 @@ let draggedWindow = null;
 let dragOffset = { x: 0, y: 0 };
 window.systemStart = Date.now();
 let windowCount = 0;
+let openWindows = {};
 
 // Router function
 function router() {
@@ -121,6 +122,14 @@ function openWindow(appName) {
     const desktopContent = document.getElementById('desktopContent');
     if (!desktopContent) return;
 
+    if (openWindows[appName]) {
+        const existingWindow = openWindows[appName];
+        existingWindow.style.display = 'block';
+        existingWindow.style.animation = 'restore 0.3s ease-in-out forwards';
+        existingWindow.style.zIndex = ++windowZIndex;
+        return;
+    }
+
     const windowId = `window-${appName}-${Date.now()}`;
     let content = '';
     let title = '';
@@ -179,12 +188,16 @@ function openWindow(appName) {
     `;
 
     desktopContent.appendChild(windowEl);
+    openWindows[appName] = windowEl;
 
     const closeBtn = windowEl.querySelector('.window-close');
     closeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         e.preventDefault();
-        windowEl.remove();
+        windowEl.style.animation = 'minimize 0.3s ease-in-out forwards';
+        setTimeout(() => {
+            windowEl.style.display = 'none';
+        }, 300);
     }, true);
 
     windowEl.onmousedown = function() {

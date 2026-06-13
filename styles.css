@@ -591,6 +591,28 @@ body {
     }
 }
 
+@keyframes minimize {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.1) translateY(600px);
+    }
+}
+
+@keyframes restore {
+    from {
+        opacity: 0;
+        transform: scale(0.1) translateY(600px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
 .window-header {
     padding: 20px;
     background: #000000;
