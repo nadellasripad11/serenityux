@@ -5,19 +5,67 @@ let dragOffset = { x: 0, y: 0 };
 window.systemStart = Date.now();
 let windowCount = 0;
 
+// Router function
+function router() {
+    const hash = location.hash.slice(1) || '/';
+    const pages = document.querySelectorAll('.page');
+
+    pages.forEach(page => {
+        page.style.display = 'none';
+    });
+
+    switch(hash) {
+        case '/':
+            document.getElementById('home-page').style.display = 'block';
+            break;
+        case '/about':
+            document.getElementById('about-page').style.display = 'block';
+            break;
+        case '/documentation':
+            document.getElementById('documentation-page').style.display = 'block';
+            break;
+        case '/OS':
+            document.getElementById('os-page').style.display = 'block';
+            if (!window.osInitialized) {
+                window.osInitialized = true;
+                setupAppIcons();
+                updateTime();
+                setInterval(updateTime, 1000);
+                setTimeout(() => {
+                    openWindow('about');
+                    setTimeout(() => openWindow('projects'), 200);
+                }, 100);
+            }
+            break;
+        default:
+            document.getElementById('home-page').style.display = 'block';
+    }
+}
+
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
+    router();
+    window.addEventListener('hashchange', router);
 });
 
 function setupEventListeners() {
     const nameInput = document.getElementById('nameInput');
     const enterBtn = document.getElementById('enterBtn');
+    const nameForm = document.getElementById('nameForm');
+
+    if (nameForm) {
+        nameForm.onsubmit = function(e) {
+            e.preventDefault();
+            launchOS();
+            return false;
+        };
+    }
 
     if (enterBtn) {
         enterBtn.onclick = function(e) {
             e.preventDefault();
-            enterOS();
+            launchOS();
             return false;
         };
     }
@@ -25,7 +73,7 @@ function setupEventListeners() {
     if (nameInput) {
         nameInput.onkeypress = function(e) {
             if (e.key === 'Enter' || e.keyCode === 13) {
-                enterOS();
+                launchOS();
                 return false;
             }
         };
@@ -38,39 +86,21 @@ function setupEventListeners() {
     document.addEventListener('mouseup', stopDrag);
 }
 
-function enterOS() {
+function launchOS() {
     const nameInput = document.getElementById('nameInput');
-    const welcomeContainer = document.getElementById('welcomeContainer');
-    const osDesktop = document.getElementById('osDesktop');
-    const visitorDisplay = document.getElementById('visitorDisplay');
 
     if (!nameInput) return;
 
     visitorName = nameInput.value.trim() || 'Guest';
 
     // Update visitor name display
+    const visitorDisplay = document.getElementById('visitorDisplay');
     if (visitorDisplay) {
         visitorDisplay.textContent = `Welcome, ${visitorName}`;
     }
 
-    // Hide welcome, show OS
-    if (welcomeContainer) {
-        welcomeContainer.style.display = 'none';
-    }
-    if (osDesktop) {
-        osDesktop.style.display = 'block';
-    }
-
-    // Setup app icons
-    setupAppIcons();
-    updateTime();
-    setInterval(updateTime, 1000);
-
-    // Open default windows
-    setTimeout(() => {
-        openWindow('about');
-        setTimeout(() => openWindow('projects'), 200);
-    }, 100);
+    // Navigate to OS page
+    location.hash = '#/OS';
 }
 
 function setupAppIcons() {
