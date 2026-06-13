@@ -387,72 +387,83 @@ function setupAppFunctionality(windowEl, appName) {
 
         renderTodos();
     } else if (appName === 'calculator') {
-        const display = content.querySelector('.calc-display');
-        const buttons = content.querySelectorAll('.calc-btn');
-        const equalBtn = content.querySelector('.calc-equal');
-        let expression = '';
+        setTimeout(() => {
+            const display = windowEl.querySelector('.calc-display');
+            const buttons = windowEl.querySelectorAll('.calc-btn');
+            const equalBtn = windowEl.querySelector('.calc-equal');
+            let expression = '';
 
-        buttons.forEach(btn => {
-            btn.onclick = function() {
-                expression += this.dataset.val;
-                display.textContent = expression || '0';
+            buttons.forEach(btn => {
+                btn.onclick = function(e) {
+                    e.stopPropagation();
+                    expression += this.dataset.val;
+                    display.textContent = expression || '0';
+                };
+            });
+
+            equalBtn.onclick = function(e) {
+                e.stopPropagation();
+                try {
+                    const result = Function('"use strict"; return (' + expression + ')')();
+                    display.textContent = result;
+                    expression = result.toString();
+                } catch(er) {
+                    display.textContent = 'Error';
+                    expression = '';
+                }
             };
-        });
-
-        equalBtn.onclick = function() {
-            try {
-                const result = Function('"use strict"; return (' + expression + ')')();
-                display.textContent = result;
-                expression = result.toString();
-            } catch(e) {
-                display.textContent = 'Error';
-                expression = '';
-            }
-        };
+        }, 0);
     } else if (appName === 'timer') {
-        const display = content.querySelector('.timer-display');
-        const startBtn = content.querySelector('.timer-start');
-        const pauseBtn = content.querySelector('.timer-pause');
-        const resetBtn = content.querySelector('.timer-reset');
+        setTimeout(() => {
+            const display = windowEl.querySelector('.timer-display');
+            const startBtn = windowEl.querySelector('.timer-start');
+            const pauseBtn = windowEl.querySelector('.timer-pause');
+            const resetBtn = windowEl.querySelector('.timer-reset');
 
-        let timeLeft = 25 * 60;
-        let timerInterval = null;
-        let isRunning = false;
+            let timeLeft = 25 * 60;
+            let timerInterval = null;
+            let isRunning = false;
 
-        function updateDisplay() {
-            const mins = Math.floor(timeLeft / 60);
-            const secs = timeLeft % 60;
-            display.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-        }
-
-        startBtn.onclick = function() {
-            if (!isRunning && timeLeft > 0) {
-                isRunning = true;
-                timerInterval = setInterval(() => {
-                    timeLeft--;
-                    updateDisplay();
-                    if (timeLeft === 0) {
-                        clearInterval(timerInterval);
-                        isRunning = false;
-                        alert('Timer finished!');
-                    }
-                }, 1000);
+            function updateDisplay() {
+                const mins = Math.floor(timeLeft / 60);
+                const secs = timeLeft % 60;
+                display.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
             }
-        };
 
-        pauseBtn.onclick = function() {
-            if (isRunning) {
+            startBtn.onclick = function(e) {
+                e.stopPropagation();
+                if (!isRunning && timeLeft > 0) {
+                    isRunning = true;
+                    timerInterval = setInterval(() => {
+                        timeLeft--;
+                        updateDisplay();
+                        if (timeLeft === 0) {
+                            clearInterval(timerInterval);
+                            isRunning = false;
+                            alert('Timer finished!');
+                        }
+                    }, 1000);
+                }
+            };
+
+            pauseBtn.onclick = function(e) {
+                e.stopPropagation();
+                if (isRunning) {
+                    isRunning = false;
+                    clearInterval(timerInterval);
+                }
+            };
+
+            resetBtn.onclick = function(e) {
+                e.stopPropagation();
                 isRunning = false;
                 clearInterval(timerInterval);
-            }
-        };
+                timeLeft = 25 * 60;
+                updateDisplay();
+            };
 
-        resetBtn.onclick = function() {
-            isRunning = false;
-            clearInterval(timerInterval);
-            timeLeft = 25 * 60;
             updateDisplay();
-        };
+        }, 0);
     }
 }
 
