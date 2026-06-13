@@ -26,6 +26,10 @@ function router() {
             break;
         case '/OS':
             document.getElementById('os-page').style.display = 'block';
+            const osDesktop = document.getElementById('osDesktop');
+            if (osDesktop) {
+                osDesktop.style.display = 'flex';
+            }
             if (!window.osInitialized) {
                 window.osInitialized = true;
                 setupAppIcons();
