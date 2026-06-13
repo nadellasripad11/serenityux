@@ -368,7 +368,7 @@ function setupAppFunctionality(windowEl, appName) {
             sendBtn.textContent = 'Sending...';
 
             // Send via Formspree
-            fetch('https://formspree.io/f/xvgobagq', {
+            fetch('https://formspree.io/f/mrevodbn', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
