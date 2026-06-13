@@ -307,8 +307,11 @@ function openWindow(appName) {
         isResizing = false;
     });
 
-    windowEl.onmousedown = function() {
-        windowEl.style.zIndex = ++windowZIndex;
+    windowEl.onmousedown = function(e) {
+        // Only update z-index on header or non-interactive areas
+        if (!e.target.closest('button') && !e.target.closest('input') && !e.target.closest('textarea')) {
+            windowEl.style.zIndex = ++windowZIndex;
+        }
     };
 
     setupAppFunctionality(windowEl, appName);
@@ -316,6 +319,8 @@ function openWindow(appName) {
 }
 
 function handleWindowDrag(e) {
+    // Don't drag if clicking on interactive elements
+    if (e.target.closest('button') || e.target.closest('input') || e.target.closest('textarea')) return;
     if (e.target.closest('.window-close') || e.target.closest('.window-maximize')) return;
 
     const windowHeader = e.target.closest('.window-header');
