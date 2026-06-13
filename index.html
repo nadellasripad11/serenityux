@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="welcome-container">
+    <!-- Welcome Screen -->
+    <div class="welcome-container" id="welcomeContainer">
         <div class="welcome-screen">
             <div class="welcome-content">
                 <div class="os-logo">
@@ -21,12 +22,7 @@
                 <p>Your personal operating system. Explore to discover who I am.</p>
 
                 <div class="welcome-form">
-                    <input
-                        type="text"
-                        id="nameInput"
-                        placeholder="Enter your name..."
-                        class="input-field"
-                    >
+                    <input type="text" id="nameInput" placeholder="Enter your name..." class="input-field">
                     <button id="enterBtn" class="btn-enter">Enter OS</button>
                 </div>
 
@@ -34,8 +30,32 @@
                     <p>Click anywhere or press Enter to continue</p>
                 </div>
             </div>
-
             <div class="background-gradient"></div>
+        </div>
+    </div>
+
+    <!-- OS Desktop -->
+    <div class="os-desktop" id="osDesktop">
+        <div class="desktop">
+            <div class="topbar">
+                <div class="topbar-left"><span class="system-name">SerenityOS</span></div>
+                <div class="topbar-center"><span class="visitor-name" id="visitorDisplay">Welcome</span></div>
+                <div class="topbar-right"><span class="time" id="systemTime">00:00</span></div>
+            </div>
+            <div class="desktop-content" id="desktopContent">
+                <div class="taskbar">
+                    <div class="taskbar-apps" id="taskbar">
+                        <button class="app-icon" data-app="about" title="About" style="font-size: 24px; font-weight: bold;">i</button>
+                        <button class="app-icon" data-app="projects" title="Projects" style="font-size: 20px;">📈</button>
+                        <button class="app-icon" data-app="portfolio" title="Portfolio" style="font-size: 20px;">💼</button>
+                        <button class="app-icon" data-app="contact" title="Contact" style="font-size: 20px;">✉</button>
+                        <button class="app-icon" data-app="notes" title="Notes" style="font-size: 20px;">📝</button>
+                        <button class="app-icon" data-app="todo" title="To-Do" style="font-size: 20px;">✓</button>
+                        <button class="app-icon" data-app="calculator" title="Calculator" style="font-size: 20px;">+</button>
+                        <button class="app-icon" data-app="timer" title="Timer" style="font-size: 20px;">⏱</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
