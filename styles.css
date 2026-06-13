@@ -727,53 +727,42 @@ body {
 }
 
 /* Scroll animation triggers */
+.scroll-animate {
+    animation: scrollFadeInUp 0.7s ease-out forwards !important;
+}
+
 .features-section.scroll-animate,
 .apps-section.scroll-animate,
 .tech-section.scroll-animate,
 .cta-section.scroll-animate {
-    animation: scrollFadeInUp 0.8s ease-out forwards;
-}
-
-.feature-card:not(.scroll-animate) {
-    opacity: 0;
-    transform: translateY(40px);
+    animation-duration: 0.8s !important;
 }
 
 .feature-card.scroll-animate {
-    animation: scrollFadeInUp 0.6s ease-out forwards;
+    animation-duration: 0.6s !important;
 }
 
-.feature-card.scroll-animate:nth-child(1) { animation-delay: 0.05s; }
-.feature-card.scroll-animate:nth-child(2) { animation-delay: 0.1s; }
-.feature-card.scroll-animate:nth-child(3) { animation-delay: 0.15s; }
-
-.app-showcase-card:not(.scroll-animate) {
-    opacity: 0;
-    transform: translateY(40px);
-}
+.feature-card.scroll-animate:nth-child(1) { animation-delay: 0.05s !important; }
+.feature-card.scroll-animate:nth-child(2) { animation-delay: 0.1s !important; }
+.feature-card.scroll-animate:nth-child(3) { animation-delay: 0.15s !important; }
 
 .app-showcase-card.scroll-animate {
-    animation: scrollFadeInUp 0.6s ease-out forwards;
+    animation-duration: 0.6s !important;
 }
 
-.app-showcase-card.scroll-animate:nth-child(1) { animation-delay: 0.05s; }
-.app-showcase-card.scroll-animate:nth-child(2) { animation-delay: 0.1s; }
-.app-showcase-card.scroll-animate:nth-child(3) { animation-delay: 0.15s; }
-.app-showcase-card.scroll-animate:nth-child(4) { animation-delay: 0.2s; }
-
-.tech-item:not(.scroll-animate) {
-    opacity: 0;
-    transform: translateY(40px);
-}
+.app-showcase-card.scroll-animate:nth-child(1) { animation-delay: 0.05s !important; }
+.app-showcase-card.scroll-animate:nth-child(2) { animation-delay: 0.1s !important; }
+.app-showcase-card.scroll-animate:nth-child(3) { animation-delay: 0.15s !important; }
+.app-showcase-card.scroll-animate:nth-child(4) { animation-delay: 0.2s !important; }
 
 .tech-item.scroll-animate {
-    animation: scrollFadeInUp 0.6s ease-out forwards;
+    animation-duration: 0.6s !important;
 }
 
-.tech-item.scroll-animate:nth-child(1) { animation-delay: 0.05s; }
-.tech-item.scroll-animate:nth-child(2) { animation-delay: 0.1s; }
-.tech-item.scroll-animate:nth-child(3) { animation-delay: 0.15s; }
-.tech-item.scroll-animate:nth-child(4) { animation-delay: 0.2s; }
+.tech-item.scroll-animate:nth-child(1) { animation-delay: 0.05s !important; }
+.tech-item.scroll-animate:nth-child(2) { animation-delay: 0.1s !important; }
+.tech-item.scroll-animate:nth-child(3) { animation-delay: 0.15s !important; }
+.tech-item.scroll-animate:nth-child(4) { animation-delay: 0.2s !important; }
 
 .window-header {
     padding: 20px;

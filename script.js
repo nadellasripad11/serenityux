@@ -57,20 +57,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function setupScrollAnimations() {
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !entry.target.classList.contains('scroll-animate')) {
                 entry.target.classList.add('scroll-animate');
-                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.features-section, .apps-section, .tech-section, .cta-section, .feature-card, .app-showcase-card, .tech-item').forEach(element => {
+    // Only observe elements that should have scroll animations
+    const elementsToObserve = document.querySelectorAll(
+        '.features-section, .apps-section, .tech-section, .cta-section, .feature-card, .app-showcase-card, .tech-item'
+    );
+
+    elementsToObserve.forEach(element => {
         observer.observe(element);
     });
 }
