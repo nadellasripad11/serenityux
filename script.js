@@ -252,6 +252,7 @@ function openWindow(appName) {
     maximizeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         e.preventDefault();
+        e.stopImmediatePropagation();
 
         if (!isMaximized) {
             originalState = {
@@ -267,6 +268,7 @@ function openWindow(appName) {
             windowEl.style.maxHeight = 'none';
             isMaximized = true;
             maximizeBtn.textContent = 'MIN';
+            draggedWindow = null;
         } else {
             windowEl.style.left = originalState.left;
             windowEl.style.top = originalState.top;
@@ -275,6 +277,7 @@ function openWindow(appName) {
             windowEl.style.maxHeight = '85vh';
             isMaximized = false;
             maximizeBtn.textContent = 'MAX';
+            draggedWindow = null;
         }
     }, true);
 
@@ -313,7 +316,7 @@ function openWindow(appName) {
 }
 
 function handleWindowDrag(e) {
-    if (e.target.closest('.window-close')) return;
+    if (e.target.closest('.window-close') || e.target.closest('.window-maximize')) return;
 
     const windowHeader = e.target.closest('.window-header');
     if (!windowHeader) return;
