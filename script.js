@@ -65,6 +65,12 @@ function enterOS() {
     setupAppIcons();
     updateTime();
     setInterval(updateTime, 1000);
+
+    // Open default windows
+    setTimeout(() => {
+        openWindow('about');
+        setTimeout(() => openWindow('projects'), 200);
+    }, 100);
 }
 
 function setupAppIcons() {
@@ -124,8 +130,11 @@ function openWindow(appName) {
     windowEl.className = 'window';
     windowEl.id = windowId;
     windowEl.style.zIndex = ++windowZIndex;
-    windowEl.style.left = (50 + Math.random() * 200) + 'px';
-    windowEl.style.top = (80 + Math.random() * 150) + 'px';
+    // Stagger windows to avoid overlap
+    const offsetX = (windowCount % 3) * 300 + 50;
+    const offsetY = 100 + (Math.floor(windowCount / 3) * 250);
+    windowEl.style.left = (offsetX + Math.random() * 20) + 'px';
+    windowEl.style.top = (offsetY + Math.random() * 20) + 'px';
 
     windowEl.innerHTML = `
         <div class="window-header">
