@@ -180,7 +180,8 @@ function openWindow(appName) {
 
     desktopContent.appendChild(windowEl);
 
-    windowEl.querySelector('.window-close').onclick = function() {
+    windowEl.querySelector('.window-close').onclick = function(e) {
+        e.stopPropagation();
         windowEl.remove();
     };
 
