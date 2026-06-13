@@ -10,38 +10,42 @@
     <!-- Welcome Screen -->
     <div class="welcome-container" id="welcomeContainer">
         <div class="welcome-screen">
-            <!-- Header Navigation -->
-            <div class="welcome-header">
-                <div class="logo-brand">
-                    <span class="brand-text">SerenityOS</span>
+            <!-- Header -->
+            <header class="welcome-header">
+                <div class="header-left">
+                    <span class="brand-text">SERENITYOS</span>
                 </div>
-                <nav class="header-nav">
-                    <a href="#" class="nav-item">Explore</a>
-                    <a href="#" class="nav-item">Projects</a>
+                <nav class="header-right">
+                    <a href="#">Docs</a>
+                    <a href="#" class="btn-header">Explore →</a>
                 </nav>
-            </div>
+            </header>
 
-            <!-- Main Content -->
-            <div class="welcome-content">
-                <div class="content-center">
-                    <h1 class="main-title">Your Personal OS</h1>
-                    <div class="scroll-indicator">
-                        <span class="scroll-text">scroll to enter</span>
-                        <div class="scroll-dot"></div>
-                    </div>
+            <!-- Main Hero -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Your personal<br>operating system.</h1>
+                    <p class="hero-subtitle">Fully functional.</p>
+                    <p class="hero-description">Built with vanilla JavaScript, featuring draggable windows, real-time apps, and professional design.</p>
+
+                    <form class="hero-form" id="nameForm">
+                        <input type="text" id="nameInput" placeholder="Enter your name..." class="form-input">
+                        <button type="submit" id="enterBtn" class="form-button">Enter OS →</button>
+                    </form>
                 </div>
             </div>
 
-            <!-- Footer Section (below fold) -->
-            <div class="welcome-footer-section">
-                <div class="footer-content">
-                    <h2>Enter Your Name</h2>
-                    <div class="welcome-form">
-                        <input type="text" id="nameInput" placeholder="Type your name..." class="input-field">
-                        <button id="enterBtn" class="btn-enter">Explore OS</button>
-                    </div>
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div class="footer-left">
+                    <span class="footer-brand">SERENITYOS</span>
                 </div>
-            </div>
+                <nav class="footer-right">
+                    <a href="#">GitHub</a>
+                    <a href="#">Docs</a>
+                    <a href="#">Privacy</a>
+                </nav>
+            </footer>
 
             <div class="background-gradient"></div>
         </div>
