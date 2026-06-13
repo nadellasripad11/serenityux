@@ -69,10 +69,11 @@ function enterOS() {
 
 function setupAppIcons() {
     document.querySelectorAll('.app-icon').forEach(icon => {
-        icon.onclick = function() {
+        icon.addEventListener('click', function(e) {
+            e.preventDefault();
             const appName = this.dataset.app;
             openWindow(appName);
-        };
+        });
     });
 }
 
