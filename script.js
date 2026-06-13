@@ -178,15 +178,15 @@ function openWindow(appName) {
     switch(appName) {
         case 'about':
             title = 'About Me';
-            content = `<div class="profile-section" style="color: #cbd5e0; font-size: 0.9em; line-height: 1.6;"><h3 style="color: #a78bfa; margin-bottom: 12px;">Hi, I'm Sripad Nadella</h3><p style="margin-bottom: 12px;">High school student, builder, and aspiring entrepreneur passionate about AI, startups, and technology.</p><p style="margin-bottom: 16px;">I enjoy turning ideas into real products that solve practical problems. My interests span software development, artificial intelligence, fintech, and data-driven decision-making.</p><div style="background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); padding: 12px; border-radius: 6px;"><strong style="color: #a78bfa;">Skills:</strong><div style="margin-top: 8px; font-size: 0.85em;">JavaScript • Python • SQL • HTML/CSS • Supabase • Vercel • Database Design • API Integration • AI-Assisted Development</div></div></div>`;
+            content = `<div class="profile-section" style="color: #cbd5e0; font-size: 0.9em; line-height: 1.6;"><h3 style="color: #a78bfa; margin-bottom: 12px;">Hi, I'm Sripad Nadella</h3><p style="margin-bottom: 12px;">High school student, builder, and aspiring entrepreneur passionate about AI, startups, and technology.</p><p style="margin-bottom: 12px;">I enjoy turning ideas into real products that solve practical problems. My interests span software development, artificial intelligence, business, fintech, and data-driven decision-making.</p><p style="margin-bottom: 16px;">I've launched multiple projects across hospitality analytics, fintech, education, and research. As a team captain in basketball and cricket, I developed leadership and teamwork skills. My long-term goal is to study Management Information Systems and build technology companies that solve meaningful problems at scale.</p><div style="background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); padding: 12px; border-radius: 6px;"><strong style="color: #a78bfa;">Skills:</strong><div style="margin-top: 8px; font-size: 0.85em;"><strong>Technical:</strong> JavaScript • Python • SQL • HTML/CSS • Supabase • Vercel • Database Design • API Integration • AI-Assisted Development</div><div style="margin-top: 6px; font-size: 0.85em;"><strong>Business:</strong> Startup Development • Customer Discovery • Sales Outreach • Market Research • Product Validation</div><div style="margin-top: 6px; font-size: 0.85em;"><strong>Leadership:</strong> Team Management • Community Building • Public Speaking • Strategic Planning</div></div></div>`;
             break;
         case 'projects':
             title = 'Projects';
-            content = `<div style="color: #cbd5e0; font-size: 0.9em;"><div style="margin-bottom: 16px;"><h4 style="color: #a78bfa; margin: 0 0 6px 0;">Socle</h4><p style="margin: 0 0 6px 0;">AI-powered platform for hospitality analytics. Analyzes guest feedback to identify trends and improvement opportunities.</p><span class="tag">AI</span> <span class="tag">Analytics</span></div><div style="margin-bottom: 16px;"><h4 style="color: #a78bfa; margin: 0 0 6px 0;">Tipster</h4><p style="margin: 0 0 6px 0;">Digital tipping platform for hospitality. QR-code tipping with employee attribution and analytics.</p><span class="tag">Fintech</span> <span class="tag">Hospitality</span></div><div style="margin-bottom: 16px;"><h4 style="color: #a78bfa; margin: 0 0 6px 0;">TrueCost</h4><p style="margin: 0 0 6px 0;">Personal finance app that converts purchases into hours of work. Helps smarter spending decisions.</p><span class="tag">Finance</span> <span class="tag">Web App</span></div><div style="margin-bottom: 16px;"><h4 style="color: #a78bfa; margin: 0 0 6px 0;">Biology EOC Prep</h4><p style="margin: 0 0 6px 0;">Online study platform for Georgia Biology exams. Reached thousands of student users.</p><span class="tag">Education</span></div><div><h4 style="color: #a78bfa; margin: 0 0 6px 0;">The Climate Note</h4><p style="margin: 0;">Environmental publication & community. Built global student network focused on climate awareness.</p><span class="tag">Community</span> <span class="tag">Publishing</span></div></div>`;
+            content = `<div style="color: #cbd5e0; font-size: 0.8em; line-height: 1.4;"><div style="margin-bottom: 10px;"><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">Socle</h4><p style="margin: 0 0 4px 0; font-size: 0.75em;">AI-powered analytics for hotels. Analyzes guest feedback to identify trends and improvements. Contacted 50+ hotel decision-makers.</p><span class="tag" style="font-size: 0.7em;">AI</span> <span class="tag" style="font-size: 0.7em;">Analytics</span></div><div style="margin-bottom: 10px;"><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">Tipster</h4><p style="margin: 0 0 4px 0; font-size: 0.75em;">Digital tipping platform for hospitality. QR-code tipping with employee attribution and analytics.</p><span class="tag" style="font-size: 0.7em;">Fintech</span> <span class="tag" style="font-size: 0.7em;">Hospitality</span></div><div style="margin-bottom: 10px;"><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">TrueCost</h4><p style="margin: 0 0 4px 0; font-size: 0.75em;">Convert purchases into work hours. Helps users make smarter spending decisions.</p><span class="tag" style="font-size: 0.7em;">Finance</span></div><div style="margin-bottom: 10px;"><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">Biology EOC Prep</h4><p style="margin: 0 0 4px 0; font-size: 0.75em;">Study platform for Georgia Biology exams. Reached thousands of student users.</p><span class="tag" style="font-size: 0.7em;">Education</span></div><div><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">The Climate Note</h4><p style="margin: 0; font-size: 0.75em;">Int'l student environmental community. Built global network with multi-country contributors.</p><span class="tag" style="font-size: 0.7em;">Community</span></div></div>`;
             break;
         case 'portfolio':
             title = 'Portfolio';
-            content = `<div style="color: #cbd5e0; font-size: 0.9em; line-height: 1.6;"><h3 style="color: #a78bfa; margin-top: 0; margin-bottom: 12px;">Experience & Skills</h3><div style="margin-bottom: 12px;"><h4 style="color: #a78bfa; margin: 0 0 6px 0;">Founder & Builder</h4><p style="margin: 0;">Multiple software products from idea to launch. Product design, development, marketing, customer outreach.</p></div><div style="margin-bottom: 12px;"><h4 style="color: #a78bfa; margin: 0 0 6px 0;">Technical Skills</h4><p style="margin: 0 0 6px 0;">JavaScript • Python • SQL • HTML/CSS • Supabase • Vercel • Database Design • API Integration</p></div><div style="margin-bottom: 12px;"><h4 style="color: #a78bfa; margin: 0 0 6px 0;">Business Skills</h4><p style="margin: 0 0 6px 0;">Startup Development • Customer Discovery • Sales Outreach • Market Research • Pitch Decks • Product Validation</p></div><div><h4 style="color: #a78bfa; margin: 0 0 6px 0;">Leadership</h4><p style="margin: 0;">Team Captain • Project Coordination • Community Building • Strategic Planning</p></div></div>`;
+            content = `<div style="color: #cbd5e0; font-size: 0.8em; line-height: 1.5;"><h3 style="color: #a78bfa; margin-top: 0; margin-bottom: 10px; font-size: 1em;">Experience</h3><div style="margin-bottom: 10px;"><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">Founder & Builder</h4><p style="margin: 0 0 4px 0; font-size: 0.75em;">Launched multiple software products. Conducted customer discovery, sales outreach, product validation.</p></div><div style="margin-bottom: 10px;"><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">President, The Climate Note</h4><p style="margin: 0 0 4px 0; font-size: 0.75em;">Built international student community. Managed contributors, content strategy, org growth.</p></div><div style="margin-bottom: 10px;"><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">Team Captain</h4><p style="margin: 0 0 4px 0; font-size: 0.75em;">Basketball & Cricket. Led practices, communication, developed leadership skills.</p></div><div style="margin-bottom: 10px;"><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">Research Lead</h4><p style="margin: 0 0 4px 0; font-size: 0.75em;">Student Insight Lab. Survey design, data collection, statistical analysis.</p></div><div style="border-top: 1px solid rgba(167, 139, 250, 0.2); padding-top: 8px;"><h4 style="color: #a78bfa; margin: 0 0 4px 0; font-size: 0.9em;">Technical Stack</h4><p style="margin: 0; font-size: 0.75em;">JavaScript • Python • SQL • HTML/CSS • Supabase • Vercel • Database Design • API Integration • AI-Assisted Development</p></div></div>`;
             break;
         case 'contact':
             title = 'Contact';
@@ -202,7 +202,7 @@ function openWindow(appName) {
             break;
         case 'calculator':
             title = 'Calculator';
-            content = `<div style="display: flex; flex-direction: column; gap: 12px;"><div class="calc-display" style="background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); border-radius: 6px; padding: 16px; text-align: right; font-size: 2em; color: #a78bfa; font-family: monospace;">0</div><div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;"><button class="calc-btn" data-val="7" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">7</button><button class="calc-btn" data-val="8" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">8</button><button class="calc-btn" data-val="9" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">9</button><button class="calc-btn" data-val="/" style="padding: 10px; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: #a78bfa; border-radius: 6px; cursor: pointer;">÷</button><button class="calc-btn" data-val="4" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">4</button><button class="calc-btn" data-val="5" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">5</button><button class="calc-btn" data-val="6" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">6</button><button class="calc-btn" data-val="*" style="padding: 10px; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: #a78bfa; border-radius: 6px; cursor: pointer;">×</button><button class="calc-btn" data-val="1" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">1</button><button class="calc-btn" data-val="2" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">2</button><button class="calc-btn" data-val="3" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">3</button><button class="calc-btn" data-val="-" style="padding: 10px; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: #a78bfa; border-radius: 6px; cursor: pointer;">-</button><button class="calc-btn" data-val="0" style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">0</button><button class="calc-btn" data-val="." style="padding: 10px; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer;">.</button><button class="calc-equal" style="padding: 10px; background: rgba(167, 139, 250, 0.2); border: 1px solid #a78bfa; color: #a78bfa; border-radius: 6px; cursor: pointer;">=</button><button class="calc-btn" data-val="+" style="padding: 10px; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: #a78bfa; border-radius: 6px; cursor: pointer;">+</button></div></div>`;
+            content = `<div style="display: flex; flex-direction: column; gap: 12px; min-width: 0;"><div class="calc-display" style="background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); border-radius: 6px; padding: 12px; text-align: right; font-size: 1.5em; color: #a78bfa; font-family: monospace; word-break: break-all;">0</div><div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;"><button class="calc-btn" data-val="7" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">7</button><button class="calc-btn" data-val="8" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">8</button><button class="calc-btn" data-val="9" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">9</button><button class="calc-btn" data-val="/" style="padding: 6px; font-size: 0.9em; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">÷</button><button class="calc-btn" data-val="4" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">4</button><button class="calc-btn" data-val="5" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">5</button><button class="calc-btn" data-val="6" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">6</button><button class="calc-btn" data-val="*" style="padding: 6px; font-size: 0.9em; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">×</button><button class="calc-btn" data-val="1" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">1</button><button class="calc-btn" data-val="2" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">2</button><button class="calc-btn" data-val="3" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">3</button><button class="calc-btn" data-val="-" style="padding: 6px; font-size: 0.9em; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">-</button><button class="calc-btn" data-val="0" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">0</button><button class="calc-btn" data-val="." style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">.</button><button class="calc-equal" style="padding: 6px; font-size: 0.9em; background: rgba(167, 139, 250, 0.2); border: 1px solid #a78bfa; color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">=</button><button class="calc-btn" data-val="+" style="padding: 6px; font-size: 0.9em; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.4); color: #a78bfa; border-radius: 6px; cursor: pointer; min-width: 0;">+</button></div></div>`;
             break;
         case 'timer':
             title = 'Timer';
@@ -210,15 +210,7 @@ function openWindow(appName) {
             break;
         case 'messages':
             title = 'Messages';
-            const msgList = JSON.parse(localStorage.getItem('serenityMessages') || '[]');
-            content = `<div style="color: #cbd5e0; font-size: 0.9em;"><div id="messages-list">${msgList.length === 0 ? '<p style="color: #999999; text-align: center; padding: 20px;">No messages yet</p>' : msgList.map(msg => `
-                <div style="background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); padding: 12px; margin-bottom: 12px; border-radius: 6px;">
-                    <div style="color: #a78bfa; font-weight: bold; margin-bottom: 4px;">${msg.email}</div>
-                    <div style="margin-bottom: 8px;">${msg.message}</div>
-                    <div style="color: #999999; font-size: 0.85em;">${msg.date}</div>
-                    <button class="msg-delete" data-id="${msg.id}" style="background: rgba(248, 113, 113, 0.2); border: 1px solid #f87171; color: #f87171; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.85em; margin-top: 8px;">Delete</button>
-                </div>
-            `).join('')}</div></div>`;
+            content = `<div style="color: #cbd5e0; font-size: 0.9em; display: flex; flex-direction: column; height: 100%;"><button id="refresh-messages" style="background: rgba(167, 139, 250, 0.2); border: 1px solid #a78bfa; color: #a78bfa; padding: 8px 16px; border-radius: 4px; cursor: pointer; margin-bottom: 12px; align-self: flex-start;">Refresh</button><div id="messages-list" style="flex: 1; overflow-y: auto;"><p style="color: #999999; text-align: center; padding: 20px;">No messages yet</p></div></div>`;
             break;
     }
 
@@ -226,11 +218,13 @@ function openWindow(appName) {
     windowEl.className = 'window';
     windowEl.id = windowId;
     windowEl.style.zIndex = ++windowZIndex;
-    // Stagger windows to avoid overlap
-    const offsetX = (windowCount % 3) * 300 + 50;
-    const offsetY = 100 + (Math.floor(windowCount / 3) * 250);
-    windowEl.style.left = (offsetX + Math.random() * 20) + 'px';
-    windowEl.style.top = (offsetY + Math.random() * 20) + 'px';
+    // Stagger windows in a visible grid pattern
+    const col = windowCount % 2;
+    const row = Math.floor(windowCount / 2);
+    const offsetX = 50 + col * 320 + (Math.random() * 10);
+    const offsetY = 100 + row * 280 + (Math.random() * 10);
+    windowEl.style.left = Math.min(offsetX, window.innerWidth - 550) + 'px';
+    windowEl.style.top = Math.min(offsetY, window.innerHeight - 200) + 'px';
 
     windowEl.innerHTML = `
         <div class="window-header">
@@ -358,52 +352,61 @@ function setupAppFunctionality(windowEl, appName) {
     const content = windowEl.querySelector('.window-content');
 
     if (appName === 'contact') {
-        const sendBtn = content.querySelector('.contact-send');
-        const emailInput = content.querySelector('.contact-email');
-        const messageInput = content.querySelector('.contact-message');
+        setTimeout(() => {
+            const sendBtn = content.querySelector('.contact-send');
+            const emailInput = content.querySelector('.contact-email');
+            const messageInput = content.querySelector('.contact-message');
 
-        sendBtn.onclick = function(e) {
-            e.stopPropagation();
-            const email = emailInput.value.trim();
-            const message = messageInput.value.trim();
-
-            if (!email) {
-                emailInput.style.borderColor = '#f87171';
-                return;
-            }
-            if (!message) {
-                messageInput.style.borderColor = '#f87171';
+            if (!sendBtn) {
+                console.error('Contact send button not found');
                 return;
             }
 
-            // Store message in localStorage
-            const messages = JSON.parse(localStorage.getItem('serenityMessages') || '[]');
-            messages.push({
-                id: Date.now(),
-                email: email,
-                message: message,
-                date: new Date().toLocaleString()
-            });
-            localStorage.setItem('serenityMessages', JSON.stringify(messages));
+            sendBtn.onclick = function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                const email = emailInput.value.trim();
+                const message = messageInput.value.trim();
 
-            const originalText = 'Send Message';
-            sendBtn.textContent = '✓ Sent!';
-            sendBtn.style.background = 'rgba(34, 197, 94, 0.2)';
-            sendBtn.style.borderColor = '#22c55e';
-            sendBtn.style.color = '#22c55e';
+                if (!email) {
+                    emailInput.style.borderColor = '#f87171';
+                    return;
+                }
+                if (!message) {
+                    messageInput.style.borderColor = '#f87171';
+                    return;
+                }
 
-            emailInput.value = '';
-            messageInput.value = '';
-            emailInput.style.borderColor = '';
-            messageInput.style.borderColor = '';
+                // Store message in localStorage
+                const messages = JSON.parse(localStorage.getItem('serenityMessages') || '[]');
+                messages.push({
+                    id: Date.now(),
+                    email: email,
+                    message: message,
+                    date: new Date().toLocaleString()
+                });
+                localStorage.setItem('serenityMessages', JSON.stringify(messages));
+                console.log('Message saved:', messages);
 
-            setTimeout(() => {
-                sendBtn.textContent = originalText;
-                sendBtn.style.background = 'rgba(167, 139, 250, 0.2)';
-                sendBtn.style.borderColor = '#a78bfa';
-                sendBtn.style.color = '#a78bfa';
-            }, 2000);
-        };
+                const originalText = 'Send Message';
+                sendBtn.textContent = '✓ Sent!';
+                sendBtn.style.background = 'rgba(34, 197, 94, 0.2)';
+                sendBtn.style.borderColor = '#22c55e';
+                sendBtn.style.color = '#22c55e';
+
+                emailInput.value = '';
+                messageInput.value = '';
+                emailInput.style.borderColor = '';
+                messageInput.style.borderColor = '';
+
+                setTimeout(() => {
+                    sendBtn.textContent = originalText;
+                    sendBtn.style.background = 'rgba(167, 139, 250, 0.2)';
+                    sendBtn.style.borderColor = '#a78bfa';
+                    sendBtn.style.color = '#a78bfa';
+                }, 2000);
+            };
+        }, 0);
     } else if (appName === 'notes') {
         const saveBtn = content.querySelector('.note-save');
         const titleInput = content.querySelector('.note-title');
@@ -574,20 +577,40 @@ function setupAppFunctionality(windowEl, appName) {
             updateDisplay();
         }, 0);
     } else if (appName === 'messages') {
-        setTimeout(() => {
-            const deleteButtons = windowEl.querySelectorAll('.msg-delete');
-            deleteButtons.forEach(btn => {
+        function renderMessages() {
+            const messagesList = windowEl.querySelector('#messages-list');
+            const messages = JSON.parse(localStorage.getItem('serenityMessages') || '[]');
+
+            if (messages.length === 0) {
+                messagesList.innerHTML = '<p style="color: #999999; text-align: center; padding: 20px;">No messages yet</p>';
+                return;
+            }
+
+            messagesList.innerHTML = messages.map(msg => `
+                <div style="background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); padding: 12px; margin-bottom: 12px; border-radius: 6px;">
+                    <div style="color: #a78bfa; font-weight: bold; margin-bottom: 4px;">${msg.email}</div>
+                    <div style="margin-bottom: 8px; word-wrap: break-word;">${msg.message}</div>
+                    <div style="color: #999999; font-size: 0.85em;">${msg.date}</div>
+                    <button class="msg-delete" data-id="${msg.id}" style="background: rgba(248, 113, 113, 0.2); border: 1px solid #f87171; color: #f87171; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.85em; margin-top: 8px;">Delete</button>
+                </div>
+            `).join('');
+
+            windowEl.querySelectorAll('.msg-delete').forEach(btn => {
                 btn.onclick = function(e) {
                     e.stopPropagation();
                     const id = parseInt(this.dataset.id);
                     const messages = JSON.parse(localStorage.getItem('serenityMessages') || '[]');
                     const filtered = messages.filter(m => m.id !== id);
                     localStorage.setItem('serenityMessages', JSON.stringify(filtered));
-                    this.closest('div').style.opacity = '0.5';
-                    this.textContent = 'Deleted';
-                    this.disabled = true;
+                    renderMessages();
                 };
             });
+        }
+
+        setTimeout(() => {
+            const refreshBtn = windowEl.querySelector('#refresh-messages');
+            refreshBtn.onclick = renderMessages;
+            renderMessages();
         }, 0);
     }
 }
