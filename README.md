@@ -135,6 +135,12 @@ An online study platform for Georgia Biology End-of-Course exams that reached th
 
 ---
 
+## AI Declaration
+
+Used AI (Claude Haiku 4.5) for bug fixing, debugging, architecture design, and testing. AI handled problem-solving throughout development cycle. All code reviewed and tested by me before deployment.
+
+---
+
 ## Contact
 
 - **GitHub:** [nadellasripad11](https://github.com/nadellasripad11)
