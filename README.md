@@ -137,7 +137,7 @@ An online study platform for Georgia Biology End-of-Course exams that reached th
 
 ## AI Declaration
 
-Used AI (Claude Haiku 4.5) for bug fixing, debugging, architecture design, and testing. AI handled problem-solving throughout development cycle. All code reviewed and tested by me before deployment.
+Used AI (Claude Haiku 4.5) for README creation, bug fixing, debugging, architecture design, and testing. AI assisted with documentation and problem-solving throughout development cycle. All code and documentation reviewed and tested by me before deployment.
 
 ---
 
