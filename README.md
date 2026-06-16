@@ -1,12 +1,12 @@
 # SerenityOS
 
-A fully functional web-based operating system with draggable windows, 9 interactive applications, and a premium minimalist design—built entirely with vanilla JavaScript. Built by Sripad Nadella as a portfolio showcase.
+I built a fully functional web-based operating system in vanilla JavaScript. No frameworks, no dependencies—just HTML, CSS, and JavaScript. It has draggable windows, 9 working apps, and a clean dark design. Think of it as a mini desktop OS that runs in your browser.
 
 ---
 
 ## 🎬 See It In Action
 
-![SerenityOS Demo - Multiple windows showing About, Projects, and Portfolio apps](./demo.png)
+![SerenityOS Demo - Multiple windows showing About, Projects, and Portfolio apps](https://serenityux.vercel.app/demo.png)
 
 ---
 
@@ -20,21 +20,21 @@ Just enter your name and start using the OS. No installation, no login.
 
 ## ✨ Features
 
-- **9 Fully Functional Apps** — About, Projects, Portfolio, Contact, Notes, To-Do, Calculator, Timer, Messages
-- **Draggable Windows** — Click and drag by the header to organize your workspace; windows layer properly with Z-index management
-- **Persistent Storage** — Notes, To-Do items, and messages automatically save to browser localStorage
-- **Professional Design** — High-contrast minimalist aesthetic with smooth animations throughout
-- **Real-Time System Clock** — Updates every second in the topbar
-- **Window Controls** — Close, maximize/restore, and resize any window; smart positioning prevents overlap
-- **Zero Dependencies** — Pure vanilla JavaScript, HTML5, and CSS3; bundle size under 50KB
+- **9 Apps that actually work** — About, Projects, Portfolio, Contact, Notes, To-Do, Calculator, Timer, Messages
+- **Drag windows around** — Click and drag any window by the header. They stack properly and don't overlap
+- **Your data stays local** — Notes, to-dos, and messages save to your browser. They stick around even after you close the window
+- **Dark theme** — Clean, minimal design with purple accents and smooth animations
+- **Clock in the topbar** — Updates every second, like a real OS
+- **Window controls** — Close, maximize, minimize, and resize. Works like you'd expect
+- **Lightweight** — No React, no frameworks. Just vanilla JS. Everything is under 50KB
 
 ---
 
 ## How It Works
 
-SerenityOS implements a complete desktop environment entirely in the browser using vanilla JavaScript. The window management system uses mouse event listeners to handle dragging with proper offset calculations and z-index layering. Each application is created dynamically and attached to the DOM when opened, with event handlers scoped to individual window instances to prevent interference.
+Everything runs in vanilla JavaScript—no React, no Vue, no framework overhead. When you drag a window, mouse events calculate offsets and handle z-index layering so windows stack properly. Apps are created dynamically when you open them and torn down when you close them to avoid memory leaks.
 
-The contact form and message system use localStorage for persistence, with a renderMessages() function that rebuilds the DOM on refresh. The calculator uses the Function constructor for safe expression evaluation, while the timer leverages setInterval for real-time updates. All animations are CSS-based for performance, using transforms and opacity instead of expensive layout reflows.
+I used localStorage to save your notes, to-do items, and messages—they stay in your browser even after you refresh. The calculator uses JavaScript's Function constructor for safe math evaluation. The timer ticks with setInterval. Animations are all CSS (transforms and opacity) so they stay smooth without eating up CPU. Bottom line: it's a full working OS that weighs less than 50KB.
 
 ---
 
@@ -104,26 +104,21 @@ Each app is fully functional:
 
 ---
 
-## About the Creator
+## About Me
 
-**Sripad Nadella** is a high school student, builder, and aspiring entrepreneur passionate about AI, startups, and technology. He enjoys turning ideas into real products that solve practical problems, with interests spanning software development, artificial intelligence, business, fintech, and data-driven decision-making.
+I'm a builder obsessed with shipping real products. I've built AI platforms for hospitality companies, finance apps, environmental communities, and everything in between. I'm really into solving real problems with code and AI, not building prototypes. I ship things. This OS is one of them.
 
 ### Featured Projects
 
-**Socle — Hospitality Analytics Platform**  
-An AI-powered platform that helps hotels analyze guest feedback across review platforms. Socle automatically identifies recurring themes, customer sentiment, and operational improvement opportunities, allowing hospitality teams to make data-driven decisions without manually reviewing hundreds of reviews. Contacted 50+ hotel decision-makers and secured product demos.
+**Socle** — AI guest feedback analyzer for luxury hotels. Hotels can't read hundreds of reviews manually. Socle uses AI to spot patterns, sentiment trends, and what's actually broken so managers can fix things that matter. I've demoed this to 50+ hotels.
 
-**Tipster — Digital Tipping Platform**  
-A digital tipping platform for hospitality businesses. Guests can tip employees through QR codes while businesses gain visibility into employee tipping data and performance metrics.
+**Tipster** — QR code tipping for restaurants. Guests scan, tip, and employees see who tipped them and how much.
 
-**TrueCost — Personal Finance App**  
-A personal finance application that converts purchases into hours of work required to earn them, helping users make smarter spending decisions through relatable cost understanding.
+**TrueCost** — Personal finance app that shows you how many hours of work each purchase costs. Makes spending real.
 
-**The Climate Note — Environmental Community**  
-Founded and led an international student-led environmental publication and community focused on climate awareness and sustainability, building a global community with contributors across multiple countries.
+**The Climate Note** — I started a global student-run environmental publication. We have writers across multiple countries writing about climate and sustainability.
 
-**Biology EOC Prep Platform**  
-An online study platform for Georgia Biology End-of-Course exams that reached thousands of student users.
+**Biology EOC Prep** — Study platform for Florida biology exams. Thousands of students used it to prep.
 
 ### Skills
 
@@ -137,7 +132,7 @@ An online study platform for Georgia Biology End-of-Course exams that reached th
 
 ## AI Declaration
 
-Used AI (Claude Haiku 4.5) for README creation, bug fixing, debugging, architecture design, and testing. AI assisted with documentation and problem-solving throughout development cycle. All code and documentation reviewed and tested by me before deployment.
+I used Claude (Haiku 4.5) to help with debugging, architecture decisions, and writing this README. But every line of code was tested and reviewed by me before it shipped. AI was my thinking partner, not my replacement.
 
 ---
 
