@@ -194,7 +194,7 @@ function openWindow(appName) {
             break;
         case 'notes':
             title = 'Notes';
-            content = `<div style="display: flex; flex-direction: column; gap: 12px; height: 100%;"><input type="text" class="note-title" placeholder="Note title..." style="padding: 8px; background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.1); border-radius: 6px; color: #a78bfa;"><textarea class="note-content" placeholder="Write your note..." style="flex: 1; padding: 8px; background: rgba(167, 139, 250, 0.06); border: 1px solid rgba(167, 139, 250, 0.1); border-radius: 6px; color: #cbd5e0; font-family: monospace; resize: none;"></textarea><button class="note-save" style="padding: 8px 16px; background: rgba(167, 139, 250, 0.2); border: 1px solid #a78bfa; color: #a78bfa; border-radius: 6px; cursor: pointer;">Save Note</button></div>`;
+            content = `<div style="display: flex; flex-direction: column; gap: 12px; height: 100%; overflow: hidden;"><div style="display: flex; gap: 8px;"><input type="text" class="note-title" placeholder="Note title..." style="flex: 1; padding: 8px; background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.1); border-radius: 6px; color: #a78bfa;"><button class="note-save" style="padding: 8px 16px; background: rgba(167, 139, 250, 0.2); border: 1px solid #a78bfa; color: #a78bfa; border-radius: 6px; cursor: pointer;">Save</button></div><textarea class="note-content" placeholder="Write your note..." style="flex: 1; padding: 8px; background: rgba(167, 139, 250, 0.06); border: 1px solid rgba(167, 139, 250, 0.1); border-radius: 6px; color: #cbd5e0; font-family: monospace; resize: none;"></textarea><div class="notes-list" style="color: #718096; text-align: center; padding: 20px; overflow-y: auto; flex: 1; border-top: 1px solid rgba(167, 139, 250, 0.1);">No notes yet</div></div>`;
             break;
         case 'todo':
             title = 'To-Do';
@@ -411,6 +411,34 @@ function setupAppFunctionality(windowEl, appName) {
         const saveBtn = content.querySelector('.note-save');
         const titleInput = content.querySelector('.note-title');
         const contentInput = content.querySelector('.note-content');
+        const notesList = content.querySelector('.notes-list');
+
+        function renderNotes() {
+            const notes = JSON.parse(localStorage.getItem('serenityNotes') || '[]');
+            if (notes.length === 0) {
+                notesList.innerHTML = '<div style="color: #718096; text-align: center; padding: 20px;">No notes yet</div>';
+            } else {
+                notesList.innerHTML = notes.map(note => `
+                    <div style="padding: 12px; background: rgba(167, 139, 250, 0.1); border-radius: 4px; margin-bottom: 8px; text-align: left;">
+                        <div style="color: #a78bfa; font-weight: bold; margin-bottom: 4px;">${note.title}</div>
+                        <div style="color: #cbd5e0; margin-bottom: 8px; white-space: pre-wrap; word-break: break-word;">${note.content}</div>
+                        <div style="color: #718096; font-size: 0.85em; margin-bottom: 8px;">${note.date}</div>
+                        <button class="note-delete" data-id="${note.id}" style="background: rgba(248, 113, 113, 0.2); border: 1px solid #f87171; color: #f87171; padding: 4px 8px; border-radius: 3px; cursor: pointer; font-size: 0.8em;">Delete</button>
+                    </div>
+                `).join('');
+
+                notesList.querySelectorAll('.note-delete').forEach(btn => {
+                    btn.onclick = function(e) {
+                        e.stopPropagation();
+                        const id = parseInt(this.dataset.id);
+                        const notes = JSON.parse(localStorage.getItem('serenityNotes') || '[]');
+                        const filtered = notes.filter(n => n.id !== id);
+                        localStorage.setItem('serenityNotes', JSON.stringify(filtered));
+                        renderNotes();
+                    };
+                });
+            }
+        }
 
         saveBtn.onclick = function() {
             const title = titleInput.value.trim();
@@ -441,6 +469,8 @@ function setupAppFunctionality(windowEl, appName) {
             contentInput.value = '';
             contentInput.style.borderColor = '';
 
+            renderNotes();
+
             setTimeout(() => {
                 saveBtn.textContent = originalText;
                 saveBtn.style.background = 'rgba(167, 139, 250, 0.2)';
@@ -448,6 +478,8 @@ function setupAppFunctionality(windowEl, appName) {
                 saveBtn.style.color = '#a78bfa';
             }, 2000);
         };
+
+        renderNotes();
     } else if (appName === 'todo') {
         const addBtn = content.querySelector('.todo-add');
         const input = content.querySelector('.todo-input');
