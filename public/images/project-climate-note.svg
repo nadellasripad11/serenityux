@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="clBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46"/>
+      <stop offset="50%" style="stop-color:#064e3b"/>
+      <stop offset="100%" style="stop-color:#022c22"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="16" fill="url(#clBg)"/>
+  <circle cx="490" cy="90" r="60" fill="#fbbf24" opacity="0.12"/>
+  <circle cx="490" cy="90" r="38" fill="#fbbf24" opacity="0.1"/>
+  <text x="300" y="180" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="40" font-weight="700">The Climate Note</text>
+  <rect x="160" y="212" width="280" height="2" fill="#34d399" opacity="0.35"/>
+  <text x="300" y="256" text-anchor="middle" fill="#a7f3d0" font-family="Georgia, serif" font-size="17" font-style="italic" opacity="0.85">A youth-led environmental newsletter</text>
+  <text x="300" y="300" text-anchor="middle" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="13" letter-spacing="2" opacity="0.75">WRITING · COMMUNITY · SUSTAINABILITY</text>
+</svg>
