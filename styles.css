@@ -1214,3 +1214,71 @@ body {
   border-color: #e94560 !important;
   color: #ffffff !important;
 }
+
+/* ============================================================
+   SerenityUX portfolio theme for the LANDING pages (home,
+   about, documentation). Navy gradient, Neue Montreal, glassy
+   cards, coral accent - to match the portfolio look.
+   ============================================================ */
+
+body {
+  background:
+    radial-gradient(55% 55% at 22% 18%, rgba(233, 69, 96, 0.10) 0%, transparent 60%),
+    radial-gradient(55% 55% at 82% 72%, rgba(83, 52, 131, 0.16) 0%, transparent 60%),
+    linear-gradient(160deg, #1a1a2e 0%, #16213e 55%, #0f3460 100%) !important;
+  background-attachment: fixed !important;
+  color: #e5e7eb !important;
+  font-family: 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+.background-gradient { background: transparent !important; }
+
+/* header + nav */
+.welcome-header { background: rgba(15, 20, 35, 0.45) !important; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.brand-text { color: #f5f5f5 !important; letter-spacing: 0.22em; }
+.header-right a, .footer-right a { color: #cbd5e0 !important; }
+.header-right a:hover, .footer-right a:hover { color: #ffffff !important; }
+.btn-header { background: #e94560 !important; border: 1px solid #e94560 !important; color: #ffffff !important; border-radius: 10px !important; }
+.btn-header:hover { background: #ff5a75 !important; color: #ffffff !important; }
+
+/* hero */
+.hero-title { color: #f5f5f5 !important; font-size: clamp(2.6em, 7vw, 6em) !important; line-height: 0.98 !important; letter-spacing: -0.01em; }
+.hero-subtitle { color: #e94560 !important; }
+.hero-description { color: #cbd5e0 !important; }
+.stat-number { color: #f5f5f5 !important; }
+.stat-label { color: #94a3b8 !important; }
+
+/* hero form */
+.form-input { background: rgba(255, 255, 255, 0.06) !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; color: #ffffff !important; border-radius: 10px !important; }
+.form-input:focus { border-color: #e94560 !important; background: rgba(255, 255, 255, 0.08) !important; }
+.form-input::placeholder { color: #94a3b8 !important; }
+.form-button { background: #e94560 !important; color: #ffffff !important; border: 1px solid #e94560 !important; border-radius: 10px !important; }
+.form-button:hover { background: #ff5a75 !important; color: #ffffff !important; }
+
+/* content sections: drop the beige, go transparent on the gradient */
+.features-section, .apps-section, .tech-section, .cta-section, .page-content, .about-section { background: transparent !important; }
+.features-section h2, .apps-section h2, .tech-section h2, .cta-section h2, .about-section h2 { color: #f5f5f5 !important; }
+.section-subtitle { color: #94a3b8 !important; }
+
+/* glassy cards */
+.feature-card, .app-showcase-card, .app-item, .tech-item {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 14px !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease !important;
+}
+.feature-card:hover, .app-showcase-card:hover, .app-item:hover, .tech-item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(233, 69, 96, 0.5) !important;
+  transform: translateY(-4px);
+}
+.feature-card h3, .app-showcase-title, .app-item h3, .tech-item h3 { color: #f5f5f5 !important; }
+.feature-card p, .app-showcase-desc, .app-item p, .tech-item p { color: #94a3b8 !important; }
+
+/* CTA */
+.cta-section p { color: #cbd5e0 !important; }
+.cta-button { background: #e94560 !important; color: #ffffff !important; border: 1px solid #e94560 !important; border-radius: 12px !important; }
+.cta-button:hover { background: #ff5a75 !important; color: #ffffff !important; }
+
+/* footer */
+.page-footer { background: transparent !important; border-top: 1px solid rgba(255, 255, 255, 0.08) !important; }
+.footer-brand { color: #94a3b8 !important; }
