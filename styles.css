@@ -159,7 +159,6 @@ body {
     margin-bottom: 30px;
     color: #ffffff;
     text-transform: uppercase;
-    animation: fadeInSlideDown 0.8s ease-out;
 }
 
 .hero-subtitle {
@@ -169,7 +168,6 @@ body {
     margin-bottom: 30px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    animation: fadeInSlideDown 0.8s ease-out 0.1s both;
 }
 
 .hero-description {
@@ -179,14 +177,12 @@ body {
     line-height: 1.8;
     max-width: 600px;
     font-weight: 300;
-    animation: fadeInSlideDown 0.8s ease-out 0.2s both;
 }
 
 .hero-stats {
     display: flex;
     gap: 80px;
     margin-top: 40px;
-    animation: fadeInSlideDown 0.8s ease-out 0.4s both;
     justify-content: center;
 }
 
@@ -215,7 +211,6 @@ body {
     flex-direction: column;
     gap: 20px;
     max-width: 400px;
-    animation: fadeInSlideDown 0.8s ease-out 0.3s both;
     align-items: center;
 }
 
@@ -681,16 +676,6 @@ body {
     }
 }
 
-@keyframes fadeInSlideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 @keyframes fadeInScale {
     from {
@@ -703,85 +688,7 @@ body {
     }
 }
 
-@keyframes scrollFadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-@keyframes scrollFadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scrollFadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scrollFadeOnly {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Scroll animation triggers */
-.scroll-animate {
-    animation: scrollFadeInUp 0.8s ease-out forwards !important;
-}
-
-.features-section.scroll-animate,
-.apps-section.scroll-animate,
-.tech-section.scroll-animate,
-.cta-section.scroll-animate {
-    animation: scrollFadeOnly 0.6s ease-out forwards !important;
-}
-
-.feature-card.scroll-animate {
-    animation-duration: 0.7s !important;
-}
-
-.feature-card.scroll-animate:nth-child(1) { animation-delay: 0s !important; }
-.feature-card.scroll-animate:nth-child(2) { animation-delay: 0.08s !important; }
-.feature-card.scroll-animate:nth-child(3) { animation-delay: 0.16s !important; }
-
-.app-showcase-card.scroll-animate {
-    animation-duration: 0.7s !important;
-}
-
-.app-showcase-card.scroll-animate:nth-child(1) { animation-delay: 0s !important; }
-.app-showcase-card.scroll-animate:nth-child(2) { animation-delay: 0.08s !important; }
-.app-showcase-card.scroll-animate:nth-child(3) { animation-delay: 0.16s !important; }
-.app-showcase-card.scroll-animate:nth-child(4) { animation-delay: 0.24s !important; }
-
-.tech-item.scroll-animate {
-    animation-duration: 0.7s !important;
-}
-
-.tech-item.scroll-animate:nth-child(1) { animation-delay: 0s !important; }
-.tech-item.scroll-animate:nth-child(2) { animation-delay: 0.08s !important; }
-.tech-item.scroll-animate:nth-child(3) { animation-delay: 0.16s !important; }
-.tech-item.scroll-animate:nth-child(4) { animation-delay: 0.24s !important; }
 
 .window-header {
     padding: 20px;
@@ -1295,11 +1202,7 @@ body { background: var(--bg) !important; color: var(--fg) !important;
 .rw-i { display: inline-block; transform: translateY(110%); transition: transform .5s cubic-bezier(.1,0,.3,1); }
 .is-in .rw-i { transform: translateY(0); }
 
-/* ---- fade-up (matches ParallaxFade) ---- */
-.scroll-animate,
-.hero-description, .section-subtitle, .cta-section p, .hero-stats, .hero-form {
-  /* base handled by JS adding .fade-init then .is-in */
-}
+/* ---- fade-up (matches ParallaxFade); applied via JS (.fade-init) ---- */
 .fade-init { opacity: 0; transform: translateY(24px); }
 .fade-init.is-in { opacity: 1; transform: translateY(0); transition: opacity .75s ease, transform .75s cubic-bezier(.1,0,.3,1); }
 
