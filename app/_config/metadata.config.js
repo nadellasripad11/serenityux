@@ -7,49 +7,47 @@ export const siteUrl =
   'http://localhost:3000';
 
 const description =
-  'building things that solve real problems. from ai-powered tools to discovery platforms, i like turning ideas into projects people actually use.';
+  'Serenity UX - a design studio crafting calm, thoughtful digital experiences. Products that feel as good as they look.';
 
 // Set explicitly (rather than relying on the opengraph-image.jsx file
 // convention alone) because that auto-discovery only reaches the exact
-// segment the file lives in - nested routes like /work or /socle lose it
-// the moment they define their own openGraph object, even one built by
-// spreading rootMetadata.openGraph. An explicit `images` array here
-// carries through to every page via pageMetadata below.
+// segment the file lives in - nested routes like /work lose it the moment
+// they define their own openGraph object, even one built by spreading
+// rootMetadata.openGraph. An explicit `images` array here carries through
+// to every page via pageMetadata below.
 const shareImage = {
   url: '/opengraph-image',
   width: 1200,
   height: 630,
-  alt: 'sripad nadella - high school student & builder',
+  alt: 'Serenity UX - design & product studio',
 };
 
 /** @type {import('next').Metadata} */
 export const rootMetadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: '%s | sripad nadella',
-    default: 'sripad nadella - high school student & builder',
+    template: '%s | Serenity UX',
+    default: 'Serenity UX - design & product studio',
   },
   description,
-  generator: 'sripad nadella',
-  applicationName: 'sripad nadella',
+  generator: 'Serenity UX',
+  applicationName: 'Serenity UX',
   referrer: 'origin-when-cross-origin',
-  keywords: ['high school student', 'builder', 'ai', 'projects'],
-  authors: [
-    { name: 'sripad nadella', url: 'https://www.github.com/nadellasripad11' },
-  ],
-  creator: 'sripad nadella',
-  publisher: 'sripad nadella',
+  keywords: ['design', 'ux', 'product design', 'ui', 'studio'],
+  authors: [{ name: 'Sripad' }],
+  creator: 'Sripad',
+  publisher: 'Serenity UX',
   openGraph: {
     type: 'website',
     url: siteUrl,
-    siteName: 'sripad nadella',
-    title: 'sripad nadella - high school student & builder',
+    siteName: 'Serenity UX',
+    title: 'Serenity UX - design & product studio',
     description,
     images: [shareImage],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'sripad nadella - high school student & builder',
+    title: 'Serenity UX - design & product studio',
     description,
     images: [shareImage],
   },
@@ -63,30 +61,16 @@ export const rootMetadata = {
 };
 
 /**
- * JSON-LD Person schema, injected as a <script type="application/ld+json">
- * in the root layout. This is the main lever for search engines to
- * associate "sripad nadella" the search query with this specific site
- * rather than treating it as a generic page - the `sameAs` links tie the
- * name to the GitHub/LinkedIn/Instagram profiles as the same entity.
+ * JSON-LD schema, injected as a <script type="application/ld+json"> in the
+ * root layout. Helps search engines associate the "Serenity UX" brand with
+ * this specific site rather than treating it as a generic page.
  */
 export const personJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Sripad Nadella',
+  '@type': 'Organization',
+  name: 'Serenity UX',
   url: siteUrl,
-  image: `${siteUrl}/images/portrait.png`,
   description,
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Alpharetta',
-    addressRegion: 'Georgia',
-    addressCountry: 'US',
-  },
-  sameAs: [
-    'https://github.com/nadellasripad11',
-    'https://www.instagram.com/sripadnadella/',
-    'https://www.linkedin.com/in/sripad-nadella/',
-  ],
 };
 
 /**
@@ -97,12 +81,12 @@ export const personJsonLd = {
  *
  * @param {Object} params
  * @param {string} params.title Plain segment title, e.g. 'work'. The root
- * title template turns it into 'work | sripad nadella' for the <title> tag.
+ * title template turns it into 'work | Serenity UX' for the <title> tag.
  * @param {string} params.description
  * @param {string} [params.path] Route path for openGraph.url, e.g. '/work'.
  */
 export function pageMetadata({ title, description: pageDescription, path = '' }) {
-  const fullTitle = `${title} | sripad nadella`;
+  const fullTitle = `${title} | Serenity UX`;
 
   return {
     title,

@@ -1,12 +1,4 @@
-import {
-  Contact,
-  Description,
-  Header,
-  Navbar,
-  Project,
-  Thumbnail,
-  Transition,
-} from '@/layout';
+import { Description, Header, Navbar, Transition } from '@/layout';
 import { rootMetadata } from '@/config';
 
 // The root page shares a segment with the root layout, so the layout's
@@ -27,10 +19,7 @@ export default function Home() {
       <Header />
       <main>
         <Description />
-        <Thumbnail />
-        <Project />
       </main>
-      <Contact />
     </Transition>
   );
 }

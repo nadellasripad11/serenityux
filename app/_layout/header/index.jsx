@@ -45,7 +45,7 @@ export function Header() {
           className='object-cover'
           fill={true}
           sizes='100vw'
-          alt='Sripad Nadella'
+          alt='Serenity UX'
           priority
         />
       </motion.div>
@@ -58,7 +58,7 @@ export function Header() {
           <h1 className='text-[max(9em,15vw)]'>
             <ParallaxSlider repeat={4} baseVelocity={2}>
               <span className='pe-12'>
-                Sripad Nadella
+                Serenity UX
                 <span className='spacer'>-</span>
               </span>
             </ParallaxSlider>
@@ -72,8 +72,8 @@ export function Header() {
             </div>
 
             <h4 className='text-[clamp(1.55em,2.5vw,2.75em)]'>
-              <span className='block'>High School</span>
-              <span className='block'>Student &amp; Builder</span>
+              <span className='block'>Design &amp;</span>
+              <span className='block'>Product Studio</span>
             </h4>
           </div>
         </div>

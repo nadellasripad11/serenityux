@@ -1,14 +1,3 @@
-export const socialMedias = [
-  {
-    href: 'https://github.com/nadellasripad11',
-    title: 'GitHub',
-  },
-  {
-    href: 'https://www.instagram.com/sripadnadella/',
-    title: 'Instagram',
-  },
-  {
-    href: 'https://www.linkedin.com/in/sripad-nadella/',
-    title: 'LinkedIn',
-  },
-];
+// Social links are intentionally empty. Add entries here to show links in
+// the footer, about page, and contact page - e.g. { href, title }.
+export const socialMedias = [];

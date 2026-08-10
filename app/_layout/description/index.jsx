@@ -1,14 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-
-import { MagneticButton, ParallaxFade, ParallaxReveal } from '@/components';
+import { ParallaxFade, ParallaxReveal } from '@/components';
 
 import { Title, Wrapper } from './index.styled';
 
 const phrase =
-  'Building things that solve real problems. From AI-powered tools to discovery platforms, I like turning ideas into projects people actually use.';
+  'Serenity UX designs calm, thoughtful digital experiences - products that feel as good as they look, from the first idea to the final detail.';
 
 export function Description() {
   return (
@@ -23,28 +20,11 @@ export function Description() {
         <div className='basis-7/12 lg:basis-3/12'>
           <ParallaxFade>
             <p className='mt-2 text-balance text-base lg:text-lg'>
-              I like figuring out how things work by building them - from the
-              code to the design to the small details that make something feel
-              real.
+              We care about the details - the layout, the motion, and the small
+              interactions that make an interface feel effortless.
             </p>
           </ParallaxFade>
         </div>
-
-        <motion.div
-          whileInView={{ y: '-15%' }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-          }}
-        >
-          <div className='absolute right-0 top-3/4 lg:top-full lg:me-10'>
-            <Link href='/about' passHref>
-              <MagneticButton variant='ghost' size='xl'>
-                About me
-              </MagneticButton>
-            </Link>
-          </div>
-        </motion.div>
       </Wrapper>
     </article>
   );

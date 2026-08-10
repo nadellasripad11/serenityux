@@ -1,16 +1,14 @@
 {
-  "name": "sripad-nadella-portfolio",
-  "title": "Sripad Nadella • High School Founder & Builder",
-  "description": "Building products that solve real problems. From AI-powered tools to hospitality platforms, I turn ideas into products people actually use.",
+  "name": "serenity-ux",
+  "title": "Serenity UX • Design & Product Studio",
+  "description": "Serenity UX - a design studio crafting calm, thoughtful digital experiences.",
   "author": {
-    "name": "Sripad Nadella",
-    "email": "nadellasripad11@gmail.com",
-    "url": "https://www.github.com/nadellasripad11"
+    "name": "Sripad"
   },
   "keywords": [
-    "Founder",
-    "Builder",
-    "Developer"
+    "Design",
+    "UX",
+    "Product Design"
   ],
   "version": "0.1.0",
   "private": true,

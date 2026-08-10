@@ -1,36 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useLenis } from '@/hooks';
 
-import { AnimatePresence } from 'framer-motion';
-import { usePathname } from 'next/navigation';
-
-import { getPreloaderWords } from '@/data';
-import { useLenis, useTimeOut } from '@/hooks';
-
-import { Preloader } from './preloader';
-
-/** @param {import('react').PropsWithChildren<unknown>} */
+/**
+ * Page wrapper. Enables Lenis smooth scrolling and keeps overflow hidden so
+ * horizontal parallax never spills. The per-page greeting preloader was
+ * removed to keep navigation instant.
+ *
+ * @param {import('react').PropsWithChildren<unknown>}
+ */
 export function Transition({ children }) {
-  const [isLoading, setLoading] = useState(true);
-  const pathname = usePathname();
-
   useLenis();
-  useTimeOut({
-    callback: () => {
-      setLoading(false);
-      window.scrollTo(0, 0);
-    },
-    duration: 2000,
-    deps: [],
-  });
 
-  return (
-    <div key={pathname} className='overflow-hidden'>
-      <AnimatePresence mode='wait'>
-        {isLoading ? <Preloader words={getPreloaderWords(pathname)} /> : null}
-      </AnimatePresence>
-      {children}
-    </div>
-  );
+  return <div className='overflow-hidden'>{children}</div>;
 }
