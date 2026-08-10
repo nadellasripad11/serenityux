@@ -1,50 +1,20 @@
 {
-  "name": "serenity-ux",
-  "title": "Serenity UX • Design & Product Studio",
-  "description": "Serenity UX - a design studio crafting calm, thoughtful digital experiences.",
-  "author": {
-    "name": "Sripad"
+  "name": "serenityux",
+  "version": "1.0.0",
+  "description": "SerenityOS - a web-based operating system built with vanilla JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8000 -c-1",
+    "serve": "npx serve -p 4202"
   },
   "keywords": [
-    "Design",
-    "UX",
-    "Product Design"
+    "webos",
+    "operating-system",
+    "javascript",
+    "html5",
+    "css3",
+    "vanilla-js"
   ],
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build --webpack",
-    "start": "next start",
-    "lint": "eslint ."
-  },
-  "dependencies": {
-    "@studio-freight/lenis": "^1.0.29",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-    "framer-motion": "^12.43.0",
-    "gsap": "^3.12.4",
-    "lucide-react": "^1.28.0",
-    "next": "16.2.12",
-    "react": "^19",
-    "react-dom": "^19",
-    "resend": "^6.18.1",
-    "styled-components": "^6.1.1",
-    "tailwind-merge": "^2.1.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.0.1",
-    "cssnano": "^6.0.2",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.12",
-    "postcss": "^8.5.25",
-    "postcss-import": "^15.1.0",
-    "postcss-preset-env": "^9.3.0",
-    "tailwindcss": "^3.3.0",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "overrides": {
-    "postcss": "^8.5.25",
-    "sharp": "^0.35.3"
-  }
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://serenityux.vercel.app"
 }

@@ -212,6 +212,14 @@ function openWindow(appName) {
             title = 'Messages';
             content = `<div style="color: #cbd5e0; font-size: 0.9em; display: flex; flex-direction: column; height: 100%;"><button id="refresh-messages" style="background: rgba(255, 255, 255, 0.2); border: 1px solid #ffffff; color: #ffffff; padding: 8px 16px; border-radius: 4px; cursor: pointer; margin-bottom: 12px; align-self: flex-start;">Refresh</button><div id="messages-list" style="flex: 1; overflow-y: auto;"><p style="color: #999999; text-align: center; padding: 20px;">No messages yet</p></div></div>`;
             break;
+        case 'browser':
+            title = 'Browser';
+            content = `<div style="display: flex; flex-direction: column; gap: 10px; height: 100%; min-height: 360px;"><div style="display: flex; gap: 8px;"><input type="text" class="browser-url" value="https://en.wikipedia.org/wiki/Web_browser" placeholder="Enter a URL, e.g. example.com" style="flex: 1; padding: 8px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #ffffff;"><button class="browser-go" style="padding: 8px 16px; background: #e94560; border: 1px solid #e94560; color: #ffffff; border-radius: 8px; cursor: pointer;">Go</button></div><div class="browser-status" style="font-size: 0.72em; color: #94a3b8;">Some sites block embedding and may not load.</div><iframe class="browser-frame" src="https://en.wikipedia.org/wiki/Web_browser" style="flex: 1; width: 100%; min-height: 300px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 8px; background: #ffffff;" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe></div>`;
+            break;
+        case 'paint':
+            title = 'Paint';
+            content = `<div style="display: flex; flex-direction: column; gap: 10px; height: 100%; min-height: 340px;"><div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;"><input type="color" class="paint-color" value="#e94560" style="width: 40px; height: 32px; border: none; background: none; cursor: pointer; padding: 0;"><label style="font-size: 0.8em; color: #cbd5e0; display: flex; align-items: center; gap: 6px;">Size <input type="range" class="paint-size" min="1" max="40" value="6"></label><button class="paint-clear" style="padding: 6px 14px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; border-radius: 8px; cursor: pointer;">Clear</button><button class="paint-save" style="padding: 6px 14px; background: #e94560; border: 1px solid #e94560; color: #ffffff; border-radius: 8px; cursor: pointer;">Save PNG</button></div><canvas class="paint-canvas" width="520" height="360" style="width: 100%; flex: 1; min-height: 280px; background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; cursor: crosshair; touch-action: none;"></canvas></div>`;
+            break;
     }
 
     const windowEl = document.createElement('div');
@@ -407,6 +415,82 @@ function setupAppFunctionality(windowEl, appName) {
                 }, 2000);
             };
         }, 0);
+    } else if (appName === 'browser') {
+        const urlInput = content.querySelector('.browser-url');
+        const goBtn = content.querySelector('.browser-go');
+        const frame = content.querySelector('.browser-frame');
+        const status = content.querySelector('.browser-status');
+
+        function navigate() {
+            let url = urlInput.value.trim();
+            if (!url) return;
+            if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+            urlInput.value = url;
+            status.textContent = 'Loading ' + url + ' …';
+            frame.src = url;
+        }
+
+        goBtn.onclick = function(e) { e.stopPropagation(); navigate(); };
+        urlInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') { e.preventDefault(); navigate(); }
+        });
+        frame.addEventListener('load', function() {
+            status.textContent = 'Loaded. Some sites block embedding and may stay blank.';
+        });
+    } else if (appName === 'paint') {
+        const canvas = content.querySelector('.paint-canvas');
+        const ctx = canvas.getContext('2d');
+        const colorInput = content.querySelector('.paint-color');
+        const sizeInput = content.querySelector('.paint-size');
+        const clearBtn = content.querySelector('.paint-clear');
+        const saveBtn = content.querySelector('.paint-save');
+
+        function fillWhite() {
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        fillWhite();
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        let drawing = false, lastX = 0, lastY = 0;
+
+        function pos(e) {
+            const r = canvas.getBoundingClientRect();
+            const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+            const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+            return { x: cx * (canvas.width / r.width), y: cy * (canvas.height / r.height) };
+        }
+        function start(e) { drawing = true; const p = pos(e); lastX = p.x; lastY = p.y; e.stopPropagation(); }
+        function move(e) {
+            if (!drawing) return;
+            const p = pos(e);
+            ctx.strokeStyle = colorInput.value;
+            ctx.lineWidth = parseInt(sizeInput.value, 10);
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(p.x, p.y);
+            ctx.stroke();
+            lastX = p.x; lastY = p.y;
+            e.preventDefault();
+        }
+        function end() { drawing = false; }
+
+        canvas.addEventListener('mousedown', start);
+        canvas.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', end);
+        canvas.addEventListener('touchstart', start, { passive: false });
+        canvas.addEventListener('touchmove', move, { passive: false });
+        window.addEventListener('touchend', end);
+
+        clearBtn.onclick = function(e) { e.stopPropagation(); fillWhite(); };
+        saveBtn.onclick = function(e) {
+            e.stopPropagation();
+            const a = document.createElement('a');
+            a.download = 'serenity-paint.png';
+            a.href = canvas.toDataURL('image/png');
+            a.click();
+        };
     } else if (appName === 'notes') {
         const saveBtn = content.querySelector('.note-save');
         const titleInput = content.querySelector('.note-title');
