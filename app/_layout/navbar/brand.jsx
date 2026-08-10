@@ -15,10 +15,10 @@ export function NavbarBrand() {
           Built by
         </h5>
         <h5 className='ps-1 transition-transform duration-500 ease-in-expo group-hover:-translate-x-[3.5rem]'>
-          Sripad
+          Serenity
         </h5>
         <h5 className='absolute left-[6.5rem] ps-1 transition-transform duration-500 ease-in-expo group-hover:-translate-x-[3.5rem]'>
-          Nadella
+          UX
         </h5>
       </div>
     </Link>
