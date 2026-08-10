@@ -804,8 +804,8 @@ console.log('SerenityUX ready!');
     // hero plays on load
     revealHeadings('.hero-title', true);
     fadeUp('.hero-subtitle, .hero-description, .hero-form, .hero-stats', true);
-    // headings + copy reveal on scroll
-    revealHeadings('.features-section h2, .apps-section h2, .tech-section h2, .cta-section h2, .about-section h2', false);
+    // headings + copy reveal on scroll (landing + About/Docs pages)
+    revealHeadings('.features-section h2, .apps-section h2, .tech-section h2, .cta-section h2, .about-section h2, .docs-section h2, .page-content h1', false);
     fadeUp('.section-subtitle, .cta-section p', false);
     // magnetic buttons
     magnetic('.btn-header, .cta-button, .form-button');
