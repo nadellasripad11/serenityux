@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setupKeyboardShortcuts();
     router();
     window.addEventListener('hashchange', router);
-    setupScrollAnimations();
 });
 
 function setupKeyboardShortcuts() {
@@ -68,30 +67,6 @@ function setupKeyboardShortcuts() {
                 }
             }
         }
-    });
-}
-
-function setupScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('scroll-animate')) {
-                entry.target.classList.add('scroll-animate');
-            }
-        });
-    }, observerOptions);
-
-    // Only observe elements that should have scroll animations
-    const elementsToObserve = document.querySelectorAll(
-        '.features-section, .apps-section, .tech-section, .cta-section, .feature-card, .app-showcase-card, .tech-item'
-    );
-
-    elementsToObserve.forEach(element => {
-        observer.observe(element);
     });
 }
 
