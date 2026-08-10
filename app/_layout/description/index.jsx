@@ -1,6 +1,6 @@
 'use client';
 
-import { ParallaxFade, ParallaxReveal } from '@/components';
+import { MagneticButton, ParallaxFade, ParallaxReveal } from '@/components';
 
 import { Title, Wrapper } from './index.styled';
 
@@ -24,6 +24,17 @@ export function Description() {
               interactions that make an interface feel effortless.
             </p>
           </ParallaxFade>
+        </div>
+
+        {/* Launch the full SerenityOS desktop (Notes, Calculator, Timer, and
+            the other apps). It's a self-contained static app under /os, so we
+            use a plain anchor for a full-page load rather than the router. */}
+        <div className='absolute right-0 top-3/4 lg:top-full lg:me-10'>
+          <a href='/os/index.html#/OS'>
+            <MagneticButton variant='ghost' size='xl'>
+              Launch OS
+            </MagneticButton>
+          </a>
         </div>
       </Wrapper>
     </article>
