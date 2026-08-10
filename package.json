@@ -1,0 +1,20 @@
+{
+  "name": "serenityux",
+  "version": "1.0.0",
+  "description": "SerenityOS - a web-based operating system built with vanilla JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8000 -c-1",
+    "serve": "npx serve -p 4202"
+  },
+  "keywords": [
+    "webos",
+    "operating-system",
+    "javascript",
+    "html5",
+    "css3",
+    "vanilla-js"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://serenityux.vercel.app"
+}
