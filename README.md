@@ -1,38 +1,48 @@
-# Serenity UX
+# serenityos
 
-Serenity UX (also known as Serenity OS) is a design studio focused on building
-calm, thoughtful digital experiences - products that feel as good as they look.
+a lil web-based os i built w/ plain html, css & js. no frameworks, no build step, nthn fancy. just open it and it runs.
 
-This repo is the Serenity UX landing site.
+## what's in it
 
-## About the site
+it's a fake desktop w/ draggable windows + a dock. rn there's 11 apps:
 
-Built with Next.js 16, React 19, Framer Motion, GSAP + Lenis, Tailwind, and
-styled-components. Smooth scroll, animated hero marquee, parallax reveals, and
-a slide-out navigation menu.
+- **about** – quick bio
+- **projects** – stuff i've made (all personal + non-commercial btw)
+- **portfolio** – activities & projects
+- **contact** – drop a msg (saved locally, no server)
+- **notes** – write notes, they stick around
+- **to-do** – basic task list
+- **calculator** – does the math
+- **timer** – 25min pomodoro
+- **messages** – shows msgs left in the contact app
+- **browser** – mini browser w/ an address bar (heads up: some sites block embedding so they won't load)
+- **paint** – draw on a canvas, pick colors, save as png
 
-It's currently a single landing page:
+notes / to-do / msgs all save to localStorage so they're still there when u come back.
 
-- Animated hero header
-- Studio description with parallax text reveal
-- Slide-out offcanvas menu
-- Custom 404 and error boundaries
-- Generated Open Graph / Twitter share image
-- JSON-LD organization schema and canonical URLs for search
+## run it
 
-## Run locally
+easiest way, just open `index.html` in ur browser.
+
+or spin up a lil server:
 
 ```bash
-npm install
-npm run dev
+npm run dev      # http-server on :8000
+# or
+npx serve
 ```
 
-Opens at localhost:3000.
+## stack
 
-## Deploy
+- html5 + css3
+- vanilla js (es6+), no libs
+- localStorage for saving stuff
+- neue montreal for the font
 
-Push to Vercel, connect the repo, done.
+## notes
 
-## License
+everything here is a personal, non-commercial project i made for fun + to learn. that's it :)
 
-All rights reserved. See `LICENSE`.
+## license
+
+not open source. see `LICENSE` — pls don't copy/redistribute.

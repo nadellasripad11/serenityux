@@ -1,4 +1,18 @@
-node_modules
-.next
+# vercel
+.vercel
+
+# os junk
+.DS_Store
+Thumbs.db
+
+# editors
+.vscode/
+.idea/
+*.swp
+
+# node
+node_modules/
+
+# env
 .env
 .env.local
