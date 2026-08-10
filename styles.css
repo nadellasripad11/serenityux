@@ -1216,69 +1216,89 @@ body {
 }
 
 /* ============================================================
-   SerenityUX portfolio theme for the LANDING pages (home,
-   about, documentation). Navy gradient, Neue Montreal, glassy
-   cards, coral accent - to match the portfolio look.
+   Portfolio-style LANDING theme — cream/white, Neue Montreal,
+   indigo accent, with word-reveal / fade / magnetic motion.
+   Matches sripad-portfolio. Scoped to landing (.page:not(.os)).
    ============================================================ */
 
-body {
-  background:
-    radial-gradient(55% 55% at 22% 18%, rgba(233, 69, 96, 0.10) 0%, transparent 60%),
-    radial-gradient(55% 55% at 82% 72%, rgba(83, 52, 131, 0.16) 0%, transparent 60%),
-    linear-gradient(160deg, #1a1a2e 0%, #16213e 55%, #0f3460 100%) !important;
-  background-attachment: fixed !important;
-  color: #e5e7eb !important;
-  font-family: 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+:root {
+  --bg: #fdfdfc;            /* warm off-white / cream */
+  --fg: #1c1d21;           /* near-black text */
+  --muted: #6f7075;        /* muted grey text */
+  --line: #e6e6e3;         /* hairline borders */
+  --accent: #4c60e6;       /* indigo primary (hsl 232 79% 59%) */
+  --accent-press: #3a4ed6;
 }
+
+/* Landing pages use the cream theme; OS desktop keeps its own dark theme */
+body { background: var(--bg) !important; color: var(--fg) !important;
+  font-family: 'Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; }
 .background-gradient { background: transparent !important; }
+.welcome-screen { scroll-behavior: smooth; }
 
 /* header + nav */
-.welcome-header { background: rgba(15, 20, 35, 0.45) !important; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-.brand-text { color: #f5f5f5 !important; letter-spacing: 0.22em; }
-.header-right a, .footer-right a { color: #cbd5e0 !important; }
-.header-right a:hover, .footer-right a:hover { color: #ffffff !important; }
-.btn-header { background: #e94560 !important; border: 1px solid #e94560 !important; color: #ffffff !important; border-radius: 10px !important; }
-.btn-header:hover { background: #ff5a75 !important; color: #ffffff !important; }
+.welcome-header { background: rgba(253,253,252,0.75) !important; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line) !important; }
+.brand-text { color: var(--fg) !important; letter-spacing: 0.14em; font-weight: 500; }
+.header-right a, .footer-right a { color: var(--muted) !important; letter-spacing: 0.02em; }
+.header-right a:hover, .footer-right a:hover { color: var(--fg) !important; }
+.btn-header { background: var(--fg) !important; color: var(--bg) !important; border: 1px solid var(--fg) !important; border-radius: 999px !important; padding: 9px 20px !important; will-change: transform; transition: transform .35s cubic-bezier(.1,0,.3,1), background .3s; }
+.btn-header:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; }
 
 /* hero */
-.hero-title { color: #f5f5f5 !important; font-size: clamp(2.6em, 7vw, 6em) !important; line-height: 0.98 !important; letter-spacing: -0.01em; }
-.hero-subtitle { color: #e94560 !important; }
-.hero-description { color: #cbd5e0 !important; }
-.stat-number { color: #f5f5f5 !important; }
-.stat-label { color: #94a3b8 !important; }
+.hero-title { color: var(--fg) !important; font-size: clamp(3em, 8.5vw, 8.5em) !important; line-height: 0.95 !important; letter-spacing: -0.02em !important; font-weight: 500 !important; }
+.hero-subtitle { color: var(--accent) !important; letter-spacing: 0.02em; }
+.hero-description { color: var(--muted) !important; }
+.stat-number { color: var(--fg) !important; }
+.stat-label { color: var(--muted) !important; }
 
 /* hero form */
-.form-input { background: rgba(255, 255, 255, 0.06) !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; color: #ffffff !important; border-radius: 10px !important; }
-.form-input:focus { border-color: #e94560 !important; background: rgba(255, 255, 255, 0.08) !important; }
-.form-input::placeholder { color: #94a3b8 !important; }
-.form-button { background: #e94560 !important; color: #ffffff !important; border: 1px solid #e94560 !important; border-radius: 10px !important; }
-.form-button:hover { background: #ff5a75 !important; color: #ffffff !important; }
+.form-input { background: #fff !important; border: 1px solid var(--line) !important; color: var(--fg) !important; border-radius: 999px !important; padding: 14px 22px !important; }
+.form-input:focus { border-color: var(--accent) !important; background: #fff !important; }
+.form-input::placeholder { color: #a6a6a6 !important; }
+.form-button { background: var(--accent) !important; color: #fff !important; border: 1px solid var(--accent) !important; border-radius: 999px !important; will-change: transform; transition: transform .35s cubic-bezier(.1,0,.3,1), background .3s; }
+.form-button:hover { background: var(--accent-press) !important; color: #fff !important; }
+.form-button::before, .form-button::after { display: none !important; }
 
-/* content sections: drop the beige, go transparent on the gradient */
+/* sections on cream */
 .features-section, .apps-section, .tech-section, .cta-section, .page-content, .about-section { background: transparent !important; }
-.features-section h2, .apps-section h2, .tech-section h2, .cta-section h2, .about-section h2 { color: #f5f5f5 !important; }
-.section-subtitle { color: #94a3b8 !important; }
+.features-section h2, .apps-section h2, .tech-section h2, .cta-section h2, .about-section h2 { color: var(--fg) !important; letter-spacing: -0.01em; font-weight: 500; }
+.section-subtitle { color: var(--muted) !important; }
 
-/* glassy cards */
+/* cards: minimal, hairline, hover lift (portfolio style) */
 .feature-card, .app-showcase-card, .app-item, .tech-item {
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  background: #fff !important;
+  border: 1px solid var(--line) !important;
   border-radius: 14px !important;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease !important;
+  transition: transform .5s cubic-bezier(.1,0,.3,1), border-color .4s, box-shadow .4s !important;
 }
 .feature-card:hover, .app-showcase-card:hover, .app-item:hover, .tech-item:hover {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border-color: rgba(233, 69, 96, 0.5) !important;
+  border-color: #d2d2cd !important;
   transform: translateY(-4px);
+  box-shadow: 0 18px 50px rgba(28,29,33,0.08);
 }
-.feature-card h3, .app-showcase-title, .app-item h3, .tech-item h3 { color: #f5f5f5 !important; }
-.feature-card p, .app-showcase-desc, .app-item p, .tech-item p { color: #94a3b8 !important; }
+.feature-card h3, .app-showcase-title, .app-item h3, .tech-item h3 { color: var(--fg) !important; }
+.feature-card p, .app-showcase-desc, .app-item p, .tech-item p { color: var(--muted) !important; }
+.feature-icon { filter: none; }
 
 /* CTA */
-.cta-section p { color: #cbd5e0 !important; }
-.cta-button { background: #e94560 !important; color: #ffffff !important; border: 1px solid #e94560 !important; border-radius: 12px !important; }
-.cta-button:hover { background: #ff5a75 !important; color: #ffffff !important; }
+.cta-section p { color: var(--muted) !important; }
+.cta-button { background: var(--accent) !important; color: #fff !important; border: 1px solid var(--accent) !important; border-radius: 999px !important; will-change: transform; transition: transform .35s cubic-bezier(.1,0,.3,1), background .3s; }
+.cta-button::after { display: none !important; }
+.cta-button:hover { background: var(--accent-press) !important; color: #fff !important; }
 
 /* footer */
-.page-footer { background: transparent !important; border-top: 1px solid rgba(255, 255, 255, 0.08) !important; }
-.footer-brand { color: #94a3b8 !important; }
+.page-footer { background: transparent !important; border-top: 1px solid var(--line) !important; }
+.footer-brand { color: var(--muted) !important; }
+
+/* ---- word-reveal (matches ParallaxReveal: words slide up behind a mask) ---- */
+.rw { display: inline-flex; overflow: hidden; vertical-align: top; }
+.rw-i { display: inline-block; transform: translateY(110%); transition: transform .5s cubic-bezier(.1,0,.3,1); }
+.is-in .rw-i { transform: translateY(0); }
+
+/* ---- fade-up (matches ParallaxFade) ---- */
+.scroll-animate,
+.hero-description, .section-subtitle, .cta-section p, .hero-stats, .hero-form {
+  /* base handled by JS adding .fade-init then .is-in */
+}
+.fade-init { opacity: 0; transform: translateY(24px); }
+.fade-init.is-in { opacity: 1; transform: translateY(0); transition: opacity .75s ease, transform .75s cubic-bezier(.1,0,.3,1); }
