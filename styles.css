@@ -1302,3 +1302,52 @@ body { background: var(--bg) !important; color: var(--fg) !important;
 }
 .fade-init { opacity: 0; transform: translateY(24px); }
 .fade-init.is-in { opacity: 1; transform: translateY(0); transition: opacity .75s ease, transform .75s cubic-bezier(.1,0,.3,1); }
+
+/* ---- About / Docs pages: cream polish ---- */
+.page-content h1 { color: var(--fg) !important; font-weight: 500 !important; font-size: clamp(2.6em, 7vw, 6em) !important; letter-spacing: -0.02em !important; }
+.about-section, .docs-section { background: transparent !important; }
+.about-section h2, .docs-section h2, .about-section h3, .docs-section h3 { color: var(--fg) !important; font-weight: 500 !important; }
+.about-section p, .docs-section p, .docs-section li, .docs-section ol li, .docs-section ul li { color: var(--muted) !important; font-weight: 400 !important; }
+.about-section a, .docs-section a { color: var(--accent) !important; border-bottom-color: var(--accent) !important; }
+.about-section a:hover, .docs-section a:hover { color: var(--accent-press) !important; border-bottom-color: var(--accent-press) !important; }
+
+/* ============================================================
+   Light OS theme — makes the desktop match the cream landing.
+   Uses !important so it overrides the app content's inline
+   (non-important) light-on-dark colors.
+   ============================================================ */
+.os-desktop .desktop {
+  background:
+    radial-gradient(60% 60% at 25% 12%, rgba(76,96,230,0.06) 0%, transparent 60%),
+    linear-gradient(160deg, #f7f7f5 0%, #eceef1 100%) !important;
+  color: #1c1d21 !important;
+}
+.os-desktop .topbar { background: rgba(255,255,255,0.72) !important; border-bottom: 1px solid var(--line) !important; }
+.os-desktop .topbar, .os-desktop .topbar * { color: #1c1d21 !important; }
+.os-desktop .taskbar-apps { background: rgba(255,255,255,0.82) !important; border: 1px solid var(--line) !important; box-shadow: 0 12px 40px rgba(28,29,33,0.12) !important; }
+.os-desktop .app-icon { background: #ffffff !important; border: 1px solid var(--line) !important; color: #1c1d21 !important; }
+.os-desktop .app-icon:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; }
+
+.os-desktop .window { background: #f4f4f3 !important; border: 1px solid var(--line) !important; box-shadow: 0 24px 70px rgba(28,29,33,0.16) !important; }
+.os-desktop .window-header { background: rgba(255,255,255,0.65) !important; border-bottom: 1px solid var(--line) !important; }
+.os-desktop .window-title { color: #1c1d21 !important; }
+.os-desktop .window-maximize, .os-desktop .window-close { color: #1c1d21 !important; }
+
+/* content text -> dark on light */
+.os-desktop .window-content { color: #52535a !important; }
+.os-desktop .window-content h1, .os-desktop .window-content h2, .os-desktop .window-content h3, .os-desktop .window-content h4, .os-desktop .window-content strong { color: #1c1d21 !important; }
+.os-desktop .window-content p, .os-desktop .window-content span, .os-desktop .window-content div, .os-desktop .window-content li, .os-desktop .window-content label, .os-desktop .window-content dt, .os-desktop .window-content dd { color: #52535a !important; }
+.os-desktop .window-content .tag { color: #3a4ed6 !important; }
+
+/* inputs */
+.os-desktop .window-content input, .os-desktop .window-content textarea { background: #ffffff !important; border: 1px solid var(--line) !important; color: #1c1d21 !important; }
+.os-desktop .window-content input::placeholder, .os-desktop .window-content textarea::placeholder { color: #9a9a9a !important; }
+
+/* buttons: light default, indigo primaries, coral destructives */
+.os-desktop .window-content button { background: #ffffff !important; border: 1px solid var(--line) !important; color: #1c1d21 !important; }
+.os-desktop .window-content .note-save, .os-desktop .window-content .todo-add, .os-desktop .window-content .contact-send, .os-desktop .window-content .calc-equal, .os-desktop .window-content .timer-start, .os-desktop .window-content .browser-go, .os-desktop .window-content .paint-save, .os-desktop .window-content #refresh-messages { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; }
+.os-desktop .calc-btn { background: #ffffff !important; }
+.os-desktop .window-content .calc-btn[data-val="/"], .os-desktop .window-content .calc-btn[data-val="*"], .os-desktop .window-content .calc-btn[data-val="-"], .os-desktop .window-content .calc-btn[data-val="+"] { background: rgba(76,96,230,0.12) !important; border-color: rgba(76,96,230,0.35) !important; color: #3a4ed6 !important; }
+.os-desktop .calc-display { background: #ffffff !important; border: 1px solid var(--line) !important; color: #1c1d21 !important; }
+.os-desktop .timer-display { color: #1c1d21 !important; }
+.os-desktop .window-content .timer-reset, .os-desktop .window-content .note-delete { background: rgba(233,69,96,0.10) !important; border-color: rgba(233,69,96,0.45) !important; color: #e94560 !important; }
