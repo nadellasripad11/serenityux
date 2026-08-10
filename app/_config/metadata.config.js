@@ -7,7 +7,7 @@ export const siteUrl =
   'http://localhost:3000';
 
 const description =
-  'Serenity UX - a design studio crafting calm, thoughtful digital experiences. Products that feel as good as they look.';
+  'Serenity UX - a personal portfolio of calm, thoughtful design and product experiments. Non-commercial projects built for learning.';
 
 // Set explicitly (rather than relying on the opengraph-image.jsx file
 // convention alone) because that auto-discovery only reaches the exact
@@ -19,7 +19,7 @@ const shareImage = {
   url: '/opengraph-image',
   width: 1200,
   height: 630,
-  alt: 'Serenity UX - design & product studio',
+  alt: 'Serenity UX - personal design & product portfolio',
 };
 
 /** @type {import('next').Metadata} */
@@ -27,13 +27,13 @@ export const rootMetadata = {
   metadataBase: new URL(siteUrl),
   title: {
     template: '%s | Serenity UX',
-    default: 'Serenity UX - design & product studio',
+    default: 'Serenity UX - personal design & product portfolio',
   },
   description,
   generator: 'Serenity UX',
   applicationName: 'Serenity UX',
   referrer: 'origin-when-cross-origin',
-  keywords: ['design', 'ux', 'product design', 'ui', 'studio'],
+  keywords: ['design', 'ux', 'product design', 'ui', 'portfolio'],
   authors: [{ name: 'Sripad' }],
   creator: 'Sripad',
   publisher: 'Serenity UX',
@@ -41,13 +41,13 @@ export const rootMetadata = {
     type: 'website',
     url: siteUrl,
     siteName: 'Serenity UX',
-    title: 'Serenity UX - design & product studio',
+    title: 'Serenity UX - personal design & product portfolio',
     description,
     images: [shareImage],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Serenity UX - design & product studio',
+    title: 'Serenity UX - personal design & product portfolio',
     description,
     images: [shareImage],
   },

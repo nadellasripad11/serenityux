@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'Serenity UX - design & product studio';
+export const alt = 'Serenity UX - personal design & product portfolio';
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -53,7 +53,7 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: 'flex', fontSize: 32, color: '#a8a8b8' }}>
-          design &amp; product studio
+          personal design &amp; product portfolio
         </div>
       </div>
     ),

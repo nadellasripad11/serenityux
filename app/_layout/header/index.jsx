@@ -72,8 +72,8 @@ export function Header() {
             </div>
 
             <h4 className='text-[clamp(1.55em,2.5vw,2.75em)]'>
-              <span className='block'>Design &amp;</span>
-              <span className='block'>Product Studio</span>
+              <span className='block'>Design &amp; Product</span>
+              <span className='block'>Personal Projects</span>
             </h4>
           </div>
         </div>
