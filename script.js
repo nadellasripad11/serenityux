@@ -742,3 +742,75 @@ function updateTime() {
 }
 
 console.log('SerenityUX ready!');
+
+/* =====================================================================
+   Portfolio-style landing motion: word-by-word heading reveal (mask +
+   staggered slide-up), fade-up for copy, and magnetic buttons. Vanilla
+   port of the sripad-portfolio ParallaxReveal / ParallaxFade / magnetic.
+   ===================================================================== */
+(function () {
+  function splitWords(el) {
+    if (el.dataset.rw) return;
+    el.dataset.rw = '1';
+    var parts = el.innerHTML.split(/(<br\s*\/?>)/i);
+    el.innerHTML = parts.map(function (p) {
+      if (/<br/i.test(p)) return p;
+      return p.split(/\s+/).filter(Boolean).map(function (w) {
+        return '<span class="rw"><span class="rw-i">' + w + '</span></span>';
+      }).join(' ');
+    }).join(' ');
+    var inners = el.querySelectorAll('.rw-i');
+    inners.forEach(function (s, i) { s.style.transitionDelay = (i * 0.035) + 's'; });
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.25 });
+
+  function playNow(el) {
+    // paint the hidden state first, then transition in
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { el.classList.add('is-in'); });
+    });
+  }
+
+  function revealHeadings(sel, now) {
+    document.querySelectorAll(sel).forEach(function (el) {
+      splitWords(el);
+      if (now) playNow(el); else io.observe(el);
+    });
+  }
+  function fadeUp(sel, now) {
+    document.querySelectorAll(sel).forEach(function (el) {
+      el.classList.add('fade-init');
+      if (now) playNow(el); else io.observe(el);
+    });
+  }
+  function magnetic(sel) {
+    document.querySelectorAll(sel).forEach(function (btn) {
+      btn.addEventListener('pointermove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - (r.left + r.width / 2)) * 0.35;
+        var y = (e.clientY - (r.top + r.height / 2)) * 0.35;
+        btn.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      });
+      btn.addEventListener('pointerleave', function () { btn.style.transform = ''; });
+    });
+  }
+
+  function initLandingMotion() {
+    // hero plays on load
+    revealHeadings('.hero-title', true);
+    fadeUp('.hero-subtitle, .hero-description, .hero-form, .hero-stats', true);
+    // headings + copy reveal on scroll
+    revealHeadings('.features-section h2, .apps-section h2, .tech-section h2, .cta-section h2, .about-section h2', false);
+    fadeUp('.section-subtitle, .cta-section p', false);
+    // magnetic buttons
+    magnetic('.btn-header, .cta-button, .form-button');
+  }
+
+  if (document.readyState !== 'loading') initLandingMotion();
+  else document.addEventListener('DOMContentLoaded', initLandingMotion);
+})();
