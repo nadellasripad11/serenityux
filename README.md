@@ -45,4 +45,4 @@ everything here is a personal, non-commercial project i made for fun + to learn.
 
 ## license
 
-not open source. see `LICENSE` — pls don't copy/redistribute.
+open source under the **MIT license** — do whatever u want w/ it, just keep the license notice. see `LICENSE`.
