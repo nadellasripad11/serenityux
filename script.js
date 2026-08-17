@@ -205,7 +205,7 @@ function openWindow(appName) {
     const col = windowCount % 2;
     const row = Math.floor(windowCount / 2);
     const offsetX = 50 + col * 320 + (Math.random() * 10);
-    const offsetY = 100 + row * 280 + (Math.random() * 10);
+    const offsetY = 40 + row * 160 + (Math.random() * 10);
     windowEl.style.left = Math.min(offsetX, window.innerWidth - 550) + 'px';
     windowEl.style.top = Math.min(offsetY, window.innerHeight - 200) + 'px';
 
